@@ -16,7 +16,7 @@ class NetworkServiceImpl implements NetworkService {
   Future<CountryModelResponse> getCountryList() async {
     final Map<String, dynamic> response = await _api.get(
       ConstantUrl.countryList,
-      authorizedHeader: true,
+      authorizedHeader: false,
     );
     return CountryModelResponse.fromJson(response);
   }
@@ -25,7 +25,7 @@ class NetworkServiceImpl implements NetworkService {
   Future<MealModelResponse> getMealList({required String country}) async {
     final Map<String, dynamic> response = await _api.get(
       ConstantUrl.mealList(country),
-      authorizedHeader: true,
+      authorizedHeader: false,
     );
     return MealModelResponse.fromJson(response);
   }

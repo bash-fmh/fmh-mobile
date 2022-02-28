@@ -34,7 +34,7 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                   ? getAppBar(
                       centerTitle: true,
                       title: Text(
-                        '${ConstantStrings.foodDelivery}',
+                        'Food & Delivery',
                         style: RobotoStyle.h1,
                         maxLines: 1,
                         textAlign: TextAlign.left,
@@ -61,7 +61,7 @@ class _DashboardViewState extends ConsumerState<DashboardView>
         controller: ref.read<DashboardVM>(vmProvider).tabController,
         children: <Widget>[
           HomeView(ref),
-          SearchView(),
+          SearchView(ref),
           ProfileView(),
         ],
       ),

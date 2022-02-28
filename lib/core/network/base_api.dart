@@ -1,18 +1,25 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:fmh_mobile/core/exception/failure.dart';
+import 'package:fmh_mobile/core/exception/unauthorized.dart';
 import 'package:fmh_mobile/core/model/error_model.dart';
+import 'package:fmh_mobile/core/service/locator/locator.dart';
+import 'package:fmh_mobile/core/service/service.dart';
 import 'base_url.dart';
 
 class Api {
   late Dio dio;
   static const String success = 'success';
   static const String error = 'error';
+  static const String appJson = 'application/json';
+  static const String authorization = 'Authorization';
 
   Api() {
     dio = Dio();
     dio.options
-      ..headers = {}
+      ..headers = {
+        HttpHeaders.contentTypeHeader: appJson,
+      }
       ..responseType = ResponseType.json;
   }
 
@@ -60,9 +67,13 @@ class Api {
   }
 
   Future<void> setAuthorizedHeader() async {
-    dio.options.headers = {
-      HttpHeaders.contentTypeHeader: 'application/json',
-    };
+    final Service _service = locator<ServiceImpl>();
+    final token = await _service.getToken();
+    if (token?.isNotEmpty ?? false) {
+      dio.options.headers[authorization] = token;
+    } else {
+      throw UnAuthorizedException;
+    }
   }
 
   Future<Map<String, dynamic>> _processResponse(Response response) async {

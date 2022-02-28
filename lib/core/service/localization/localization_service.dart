@@ -22,7 +22,8 @@ class LocalizationService {
   Map<dynamic, dynamic>? _localizedValues;
   VoidCallback? _onLocaleChangedCallback;
 
-  final PreferencesService _preferencesService = locator<PreferencesServiceImpl>();
+  final PreferencesService _preferencesService =
+      locator<PreferencesServiceImpl>();
 
   static const List<String> supportedLanguages = [
     'English',
@@ -60,7 +61,7 @@ class LocalizationService {
       try {
         await setNewLanguage(language);
       } catch (e, s) {
-        print('${e.toString()} $s');
+        return null;
       }
     }
     return null;

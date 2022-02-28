@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/exception/failure.dart';
+import 'package:fmh_mobile/core/exception/unauthorized.dart';
 import 'package:fmh_mobile/core/model/viewstate_error.dart';
 import 'package:fmh_mobile/core/service/flavor_manager.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 
 abstract class BaseViewModel with ChangeNotifier {
   bool _disposed = false;
@@ -71,7 +73,11 @@ abstract class BaseViewModel with ChangeNotifier {
         message = e.error;
       } else if (e.error is SocketException) {
         errorType = ViewStateErrorType.networkError;
-        message = ConstantStrings.noInternetFullMsg;
+        message = getLocalization.noInternet;
+      } else if (e.error is UnAuthorizedException) {
+        errorType = ViewStateErrorType.unauthorizedError;
+        message = e.error.toString();
+        //maybe logout user
       } else {
         message = e.error.toString();
       }
@@ -85,7 +91,7 @@ abstract class BaseViewModel with ChangeNotifier {
         message: message ?? '', title: title, errorCode: errorCode);
     viewState = ViewState.error;
     if (FlavorManager.instance.isDev) {
-      print(stackTrace);
+      print('$e $stackTrace');
     }
     onError(viewStateError);
   }

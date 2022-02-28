@@ -1,5 +1,6 @@
 import 'package:fmh_mobile/core/constant/constant_asset.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
+import 'package:fmh_mobile/core/exception/unauthorized.dart';
 import 'package:fmh_mobile/core/model/nav_button_model.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 import 'package:flutter/material.dart';
@@ -89,6 +90,11 @@ class DashboardVM extends BaseViewModel {
     } catch (e, s) {
       setError(e, s);
     }
+  }
+
+  Future<void> testThrow() async {
+    // to test and show how runZonedGuarded catch uncaught exceptions
+    throw UnAuthorizedException;
   }
 
   @override

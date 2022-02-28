@@ -1,5 +1,6 @@
 {
     "home": "Home",
     "search": "Search",
-    "profile": "Profile"
+    "profile": "Profile",
+    "no_internet":"No internet Connection!! Please connect to internet and try again"
 }

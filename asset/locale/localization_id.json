@@ -1,5 +1,6 @@
 {
     "home": "Terima",
     "search": "kembali",
-    "profile": "Profil"
+    "profile": "Profil",
+    "no_internet":"No internet Connection!! Please connect to internet and try again"
 }

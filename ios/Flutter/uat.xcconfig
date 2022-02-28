@@ -2,5 +2,5 @@
 #include "Generated.xcconfig"
 #include "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
 FLUTTER_TARGET=lib/main_uat.dart
-APP_NAME=[UAT] Assessment
+APP_NAME=[UAT] FMH
 BUNDLE_SUFFIX =.uat
