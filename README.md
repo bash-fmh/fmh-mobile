@@ -161,9 +161,9 @@ The following section describes all the API endpoints which been used in the app
 
 <span dir="">baseUrl</span> for <span dir="">DEV</span> & <span dir="">UAT</span>:
 
-- [<span dir="">https://</span>]) <span dir="">my</span>
-- [<span dir="">https://</span>]() <span dir="">ID</span>
-- [<span dir="">https://</span>]() <span dir="">TH</span>
+- [<span dir="">https://</span>]() <span dir="">Enterprise</span>
+- [<span dir="">https://</span>]() <span dir="">Legacy</span>
+- [<span dir="">https://</span>]() <span dir="">V2</span>
 
 <span dir="">baseUrl</span> for <span dir="">PROD</span>:
 
