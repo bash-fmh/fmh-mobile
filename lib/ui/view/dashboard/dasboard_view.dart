@@ -28,25 +28,28 @@ class _DashboardViewState extends ConsumerState<DashboardView>
           builder: (context, ref, child) {
             NavButtonType selectedNav =
                 ref.watch(vmProvider.select((vm) => (vm.selectedNavButton)));
-            return Scaffold(
-              appBar: selectedNav == NavButtonType.home ||
-                      selectedNav == NavButtonType.search
-                  ? getAppBar(
-                      centerTitle: true,
-                      title: Text(
-                        'Food & Delivery',
-                        style: RobotoStyle.h1,
-                        maxLines: 1,
-                        textAlign: TextAlign.left,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      backgroundColor: ThemeColor.brandYellow)
-                  : null,
-              resizeToAvoidBottomInset: false,
-              bottomNavigationBar: nav.NavigationBar(
-                ref,
+            return SafeArea(
+              top: false,
+              child: Scaffold(
+                appBar: selectedNav == NavButtonType.home ||
+                        selectedNav == NavButtonType.search
+                    ? getAppBar(
+                        centerTitle: true,
+                        title: Text(
+                          'Food & Delivery',
+                          style: RobotoStyle.h1,
+                          maxLines: 1,
+                          textAlign: TextAlign.left,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        backgroundColor: ThemeColor.brandYellow)
+                    : null,
+                resizeToAvoidBottomInset: false,
+                bottomNavigationBar: nav.NavigationBar(
+                  ref,
+                ),
+                body: _getMainBody(),
               ),
-              body: _getMainBody(),
             );
           },
         );
@@ -55,16 +58,14 @@ class _DashboardViewState extends ConsumerState<DashboardView>
   }
 
   _getMainBody() {
-    return SafeArea(
-      child: TabBarView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: ref.read<DashboardVM>(vmProvider).tabController,
-        children: <Widget>[
-          HomeView(ref),
-          SearchView(ref),
-          ProfileView(),
-        ],
-      ),
+    return TabBarView(
+      physics: const NeverScrollableScrollPhysics(),
+      controller: ref.read<DashboardVM>(vmProvider).tabController,
+      children: <Widget>[
+        HomeView(ref),
+        SearchView(ref),
+        ProfileView(),
+      ],
     );
   }
 }
