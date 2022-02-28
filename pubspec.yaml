@@ -1,0 +1,54 @@
+name: fmh_mobile
+description: fmh mobile app.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_cupertino_localizations: ^1.0.1
+
+  get_it: ^6.1.1
+  flutter_riverpod: ^1.0.3
+  riverpod: ^1.0.3
+  dio: ^4.0.0
+  cupertino_icons: ^1.0.2
+  shared_preferences: ^2.0.13
+  custom_buttons:
+    git:
+      url: https://github.com/bizz84/codewithandrea_flutter_packages
+      path: packages/custom_buttons
+    
+
+dev_dependencies:
+  lint: ^1.5.3
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - asset/locale/localization_en.json
+    - asset/locale/localization_id.json
+    - asset/locale/localization_th.json
+    - asset/font/
+    - asset/image/
+    - asset/icon/
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: asset/font/roboto/Roboto-Light.ttf
+          weight: 300
+        - asset: asset/font/roboto/Roboto-Regular.ttf
+          weight: 400
+        - asset: asset/font/roboto/Roboto-Medium.ttf
+          weight: 500
+        - asset: asset/font/roboto/Roboto-Bold.ttf
+          weight: 700

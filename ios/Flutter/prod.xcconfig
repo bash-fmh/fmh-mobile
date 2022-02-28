@@ -1,0 +1,6 @@
+
+#include "Generated.xcconfig"
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+FLUTTER_TARGET=lib/main_prod.dart
+APP_NAME=Assessment
+BUNDLE_SUFFIX =.prod
