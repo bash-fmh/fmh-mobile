@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
-import 'package:fmh_mobile/core/constant/enum.dart';
-import 'package:fmh_mobile/core/constant/strings_constant.dart';
-import 'package:fmh_mobile/core/service/locator/locator.dart';
-import 'package:fmh_mobile/core/service/sharedpreferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
+import 'package:fmh_mobile/core/constant/enum.dart';
+import 'package:fmh_mobile/core/service/locator/locator.dart';
+import 'package:fmh_mobile/core/service/service.dart';
+
 import '../system_config.dart';
 
 class LocalizationService {
@@ -22,8 +22,7 @@ class LocalizationService {
   Map<dynamic, dynamic>? _localizedValues;
   VoidCallback? _onLocaleChangedCallback;
   final RegExp _replaceArgRegex = RegExp(r'{}');
-  final PreferencesService _preferencesService =
-      locator<PreferencesServiceImpl>();
+  final Service _service = locator<ServiceImpl>();
 
   static const List<String> supportedLanguages = [
     'English',
@@ -63,7 +62,9 @@ class LocalizationService {
 
   String _replaceArgs(String res, List<String>? args) {
     if (args == null || args.isEmpty) return res;
-    args.forEach((String str) => res = res.replaceFirst(_replaceArgRegex, str));
+    for (var str in args) {
+      res = res.replaceFirst(_replaceArgRegex, str);
+    }
     return res;
   }
 
@@ -78,25 +79,17 @@ class LocalizationService {
     if (_locale == null) {
       try {
         await setNewLanguage(language);
-      } catch (e, s) {
+      } catch (_) {
         return null;
       }
     }
     return null;
   }
 
-  Future<String?> getPreferredLanguage() async {
-    return getApplicationSavedInformation('${ConstantStrings.language}');
-  }
-
-  Future<bool> setPreferredLanguage(String lang) async {
-    return _setApplicationSavedInformation('${ConstantStrings.language}', lang);
-  }
-
   Future<Null> setNewLanguage(
       [String? newLanguage, bool saveInPrefs = true]) async {
     String? language = newLanguage;
-    language ??= await getPreferredLanguage();
+    language ??= await _service.getPreferredLanguage();
     language ??= supportedLanguagesCodes.first;
     _locale = Locale(language, '');
 
@@ -108,7 +101,7 @@ class LocalizationService {
     setDeployCountry(language);
 
     if (saveInPrefs) {
-      await setPreferredLanguage(language);
+      await _service.setPreferredLanguage(language);
     }
     _onLocaleChangedCallback?.call();
     return null;
@@ -129,17 +122,6 @@ class LocalizationService {
         SystemConfig.instance.setCountry(DeployCountry.my);
         break;
     }
-  }
-
-  Future<String?> getApplicationSavedInformation(String name) async {
-    return await _preferencesService.getString(
-        key: '${ConstantStrings.storageKey}$name');
-  }
-
-  Future<bool> _setApplicationSavedInformation(
-      String name, String value) async {
-    return _preferencesService.setString(
-        key: '${ConstantStrings.storageKey}$name', value: value);
   }
 }
 

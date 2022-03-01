@@ -4,7 +4,6 @@ import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
 import 'package:fmh_mobile/ui/shared/roboto_style.dart';
-import 'package:fmh_mobile/ui/widget/buttons.dart';
 import '../base_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -19,7 +18,7 @@ class HomeView extends StatelessWidget {
       builder: (context) {
         return Center(child: Consumer(
           builder: (context, ref, child) {
-            final state = ref.watch(vmProvider.select((vm) => (vm.viewState)));
+            final state = ref.watch(vmProvider.select((vm) => vm.viewState));
             switch (state) {
               case ViewState.busy:
                 return loadingScreen();
@@ -30,17 +29,16 @@ class HomeView extends StatelessWidget {
                   children: [
                     Consumer(
                       builder: (context, ref, child) {
-                        bool selected = ref.watch(
-                            vmProvider.select((vm) => (vm.selected ?? false)));
-                        return CustomButton(
-                          key: emailPasswordButtonKey,
-                          text: 'Home',
+                        final bool selected = ref.watch(
+                            vmProvider.select((vm) => vm.selected ?? false));
+                        return TextButton(
+                          style: ButtonStyle(
+                            foregroundColor: MaterialStateProperty.all<Color>(
+                                selected ? Colors.blue : Colors.green),
+                          ),
                           onPressed: () =>
                               ref.read<DashboardVM>(vmProvider).setSelected(),
-                          textColor: Colors.white,
-                          color: selected
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).splashColor,
+                          child: Text('TextButton'),
                         );
                       },
                     ),

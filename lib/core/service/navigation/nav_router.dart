@@ -3,6 +3,8 @@ import 'package:fmh_mobile/ui/view/dashboard/dasboard_view.dart';
 import 'package:fmh_mobile/ui/view/splash/splash_view.dart';
 
 class NavRouter {
+  NavRouter._();
+
   static const String initialRoute = '/';
   static const String dashboardRouter = '/dashboard';
 
