@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:fmh_mobile/core/constant/constant_url.dart';
 import 'package:fmh_mobile/core/model/country_model.dart';
 import 'package:fmh_mobile/core/model/product.dart';
@@ -40,7 +37,7 @@ class NetworkServiceImpl implements NetworkService {
   @override
   Future<Map<String, dynamic>> testMultiPartFile(
       {required UploadFormData uploadFormData}) async {
-    return await _api.post("endpoint",
+    return await _api.post('endpoint',
         formData: await uploadFormData.getApiParam());
   }
 }

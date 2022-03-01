@@ -27,8 +27,8 @@ class NavigationBar extends StatelessWidget {
               final currentNav = viewModel.navButtons[index];
               return Consumer(
                 builder: (context, ref, child) {
-                  NavButtonType selectedNav = ref
-                      .watch(vmProvider.select((vm) => (vm.selectedNavButton)));
+                  final NavButtonType selectedNav = ref
+                      .watch(vmProvider.select((vm) => vm.selectedNavButton));
                   return Expanded(
                       flex: 1,
                       child: InkWell(

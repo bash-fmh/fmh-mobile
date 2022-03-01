@@ -1,6 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/constant/strings_constant.dart';
-import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class PreferencesService {

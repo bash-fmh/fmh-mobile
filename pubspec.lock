@@ -50,15 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
-  custom_buttons:
-    dependency: "direct main"
-    description:
-      path: "packages/custom_buttons"
-      ref: HEAD
-      resolved-ref: e4437aca855811470010c26cab684b512c714f21
-      url: "https://github.com/bizz84/codewithandrea_flutter_packages"
-    source: git
-    version: "0.1.0"
   dio:
     dependency: "direct main"
     description:

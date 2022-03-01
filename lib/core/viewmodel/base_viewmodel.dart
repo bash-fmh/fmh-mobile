@@ -1,13 +1,12 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
-import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/exception/failure.dart';
 import 'package:fmh_mobile/core/exception/unauthorized.dart';
 import 'package:fmh_mobile/core/model/viewstate_error.dart';
 import 'package:fmh_mobile/core/service/flavor_manager.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 
 abstract class BaseViewModel with ChangeNotifier {
