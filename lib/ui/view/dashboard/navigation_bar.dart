@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
+import 'package:fmh_mobile/core/theme/sf_pro_font_style.dart';
+import 'package:fmh_mobile/core/theme/theme_color.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
-import 'package:fmh_mobile/ui/shared/sf_pro_font_style.dart';
-import 'package:fmh_mobile/ui/shared/theme_color.dart';
 
 class NavigationBar extends StatelessWidget {
   const NavigationBar(this.ref);

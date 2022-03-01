@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
+import 'package:fmh_mobile/core/theme/sf_pro_font_style.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
-import 'package:fmh_mobile/ui/shared/sf_pro_font_style.dart';
+
 import '../base_view.dart';
 
 class HomeView extends StatelessWidget {

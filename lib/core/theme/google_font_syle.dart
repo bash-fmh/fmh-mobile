@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fmh_mobile/ui/shared/theme_color.dart';
+import 'package:fmh_mobile/core/theme/theme_color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GoogleStyle {
