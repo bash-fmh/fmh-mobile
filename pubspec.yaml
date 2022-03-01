@@ -1,6 +1,8 @@
 name: fmh_mobile
 description: fmh mobile app.
 
+publish_to: none
+
 version: 1.0.0+1
 
 environment:
@@ -37,7 +39,6 @@ flutter:
     - asset/font/
     - asset/font/google_fonts/
     - asset/image/
-    - asset/icon/
 
   fonts:
     - family: SF Pro Text

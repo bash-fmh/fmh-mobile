@@ -18,9 +18,9 @@ class NavigationBar extends StatelessWidget {
         child: Container(
           height: 56,
           decoration: BoxDecoration(
-              color: ThemeColor.shadeWhite,
-              border: Border(
-                  top: BorderSide(color: ThemeColor.lightestGrey, width: 1))),
+              color: ThemeColor.gray000,
+              border:
+                  Border(top: BorderSide(color: ThemeColor.white, width: 1))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(viewModel.navButtons.length, (index) {
@@ -63,8 +63,6 @@ class NavigationBar extends StatelessWidget {
   }
 
   Color _getColor(NavButtonType currentNav, NavButtonType selectedNav) {
-    return currentNav == selectedNav
-        ? ThemeColor.brandLightBlue
-        : ThemeColor.grey;
+    return currentNav == selectedNav ? ThemeColor.sunny500 : ThemeColor.gray600;
   }
 }

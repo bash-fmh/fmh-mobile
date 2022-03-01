@@ -9,5 +9,5 @@ final ThemeData defaultThemeData = ThemeData(
     elevation: 0,
     iconTheme: IconThemeData(color: ThemeColor.black),
   ),
-  scaffoldBackgroundColor: ThemeColor.shade10,
+  scaffoldBackgroundColor: ThemeColor.sunny100,
 );
