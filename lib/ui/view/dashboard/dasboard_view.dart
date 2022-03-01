@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
-import 'package:fmh_mobile/ui/shared/roboto_style.dart';
+import 'package:fmh_mobile/ui/shared/google_font_syle.dart';
 import 'package:fmh_mobile/ui/shared/theme_color.dart';
 import 'package:fmh_mobile/ui/view/home/home.dart';
 import 'package:fmh_mobile/ui/view/profile/profile.dart';
@@ -36,7 +36,7 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                         centerTitle: true,
                         title: Text(
                           'Food & Delivery',
-                          style: RobotoStyle.h1,
+                          style: GoogleStyle.linkTextButton,
                           maxLines: 1,
                           textAlign: TextAlign.left,
                           overflow: TextOverflow.ellipsis,

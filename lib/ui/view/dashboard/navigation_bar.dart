@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
-import 'package:fmh_mobile/ui/shared/roboto_style.dart';
+import 'package:fmh_mobile/ui/shared/sf_pro_font_style.dart';
 import 'package:fmh_mobile/ui/shared/theme_color.dart';
 
 class NavigationBar extends StatelessWidget {
@@ -46,7 +46,7 @@ class NavigationBar extends StatelessWidget {
                             ),
                             Text(
                               currentNav.name ?? '',
-                              style: RobotoStyle.caption.copyWith(
+                              style: SfProStyle.subtitle1.copyWith(
                                   color: _getColor(
                                       currentNav.navButtonType, selectedNav)),
                             )
