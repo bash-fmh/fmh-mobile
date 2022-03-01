@@ -1,6 +1,8 @@
 name: fmh_mobile
 description: fmh mobile app.
 
+publish_to: none
+
 version: 1.0.0+1
 
 environment:
@@ -39,7 +41,6 @@ flutter:
     - asset/locale/localization_th.json
     - asset/font/
     - asset/image/
-    - asset/icon/
 
   fonts:
     - family: Roboto
