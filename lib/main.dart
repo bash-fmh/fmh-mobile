@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/constant/strings_constant.dart';
 import 'core/constant/theme_data.dart';
 import 'core/service/localization/localization_service.dart';
@@ -6,7 +7,6 @@ import 'core/service/navigation/nav_router.dart';
 import 'core/service/navigation/navigation_service.dart';
 import 'ui/view/base_view.dart';
 import 'ui/view/splash/splash_view.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

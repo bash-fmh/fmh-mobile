@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
-import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
 import 'package:fmh_mobile/ui/shared/roboto_style.dart';
 import 'package:fmh_mobile/ui/shared/theme_color.dart';
@@ -9,7 +9,6 @@ import 'package:fmh_mobile/ui/view/profile/profile.dart';
 import 'package:fmh_mobile/ui/view/search/search.dart';
 import 'package:fmh_mobile/ui/widget/app_bar.dart';
 import '../base_view.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'navigation_bar.dart' as nav;
 
 class DashboardView extends ConsumerStatefulWidget {
@@ -26,8 +25,8 @@ class _DashboardViewState extends ConsumerState<DashboardView>
       builder: (context) {
         return Consumer(
           builder: (context, ref, child) {
-            NavButtonType selectedNav =
-                ref.watch(vmProvider.select((vm) => (vm.selectedNavButton)));
+            final NavButtonType selectedNav =
+                ref.watch(vmProvider.select((vm) => vm.selectedNavButton));
             return SafeArea(
               top: false,
               child: Scaffold(
@@ -57,7 +56,7 @@ class _DashboardViewState extends ConsumerState<DashboardView>
     );
   }
 
-  _getMainBody() {
+  Widget _getMainBody() {
     return TabBarView(
       physics: const NeverScrollableScrollPhysics(),
       controller: ref.read<DashboardVM>(vmProvider).tabController,

@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
+import 'package:flutter/services.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/service/locator/locator.dart';
 import 'package:fmh_mobile/core/service/service.dart';
-import 'package:flutter/services.dart';
+
 import '../system_config.dart';
 
 class LocalizationService {
@@ -61,7 +62,9 @@ class LocalizationService {
 
   String _replaceArgs(String res, List<String>? args) {
     if (args == null || args.isEmpty) return res;
-    args.forEach((String str) => res = res.replaceFirst(_replaceArgRegex, str));
+    for (var str in args) {
+      res = res.replaceFirst(_replaceArgRegex, str);
+    }
     return res;
   }
 

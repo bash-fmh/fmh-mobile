@@ -19,10 +19,6 @@ dependencies:
   dio: ^4.0.0
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.13
-  custom_buttons:
-    git:
-      url: https://github.com/bizz84/codewithandrea_flutter_packages
-      path: packages/custom_buttons
     
 
 dev_dependencies:

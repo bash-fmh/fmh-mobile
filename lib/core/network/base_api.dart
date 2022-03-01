@@ -60,11 +60,7 @@ class Api {
       if (authorizedHeader) await setAuthorizedHeader();
       final Response response = await dio.post(endpoint,
           queryParameters: queryParam,
-          data: formData != null
-              ? formData
-              : body != null
-                  ? body
-                  : {},
+          data: formData ?? body ?? {},
           onSendProgress: onSendProgress);
       return await _processResponse(response);
     } catch (e) {
