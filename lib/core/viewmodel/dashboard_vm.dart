@@ -86,6 +86,7 @@ class DashboardVM extends BaseViewModel {
     try {
       setBusy();
       final countries = (await _service.getCountryList()).countries ?? [];
+      print(countries.toString());
       setIdle();
     } catch (e, s) {
       setError(e, s);

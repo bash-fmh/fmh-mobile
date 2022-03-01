@@ -79,7 +79,7 @@ class LocalizationService {
     if (_locale == null) {
       try {
         await setNewLanguage(language);
-      } catch (e, s) {
+      } catch (_) {
         return null;
       }
     }
