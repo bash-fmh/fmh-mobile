@@ -37,7 +37,7 @@ class ThemeColor {
   static const Color lightestGrey = Color.fromRGBO(35, 31, 32, 0.08);
   static const Color grey = Color.fromRGBO(35, 31, 32, 0.56);
 
-  static const Color sunny500 = Color(0xFFB0531C);
+  static const Color sunny500 = Color(0xFFF5A00D);
 
   static const List<Color> placeholder = [
     Color.fromRGBO(35, 31, 32, 0.08),
