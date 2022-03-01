@@ -21,7 +21,7 @@ class LocalizationService {
   Locale? _locale;
   Map<dynamic, dynamic>? _localizedValues;
   VoidCallback? _onLocaleChangedCallback;
-
+  final RegExp _replaceArgRegex = RegExp(r'{}');
   final PreferencesService _preferencesService =
       locator<PreferencesServiceImpl>();
 
@@ -50,10 +50,28 @@ class LocalizationService {
   Iterable<Locale> supportedLocales() =>
       supportedLanguagesCodes.map<Locale>((lang) => Locale(lang, ''));
 
-  String text(String key) {
+  String text(
+    String key, {
+    List<String>? args,
+    Map<String, String>? namedArgs,
+  }) {
     return (_localizedValues == null || _localizedValues![key] == null)
         ? '** $key not found'
-        : _localizedValues![key];
+        : _replaceArgs(
+            _replaceNamedArgs(_localizedValues![key], namedArgs), args);
+  }
+
+  String _replaceArgs(String res, List<String>? args) {
+    if (args == null || args.isEmpty) return res;
+    args.forEach((String str) => res = res.replaceFirst(_replaceArgRegex, str));
+    return res;
+  }
+
+  String _replaceNamedArgs(String res, Map<String, String>? args) {
+    if (args == null || args.isEmpty) return res;
+    args.forEach((String key, String value) =>
+        res = res.replaceAll(RegExp('{$key}'), value));
+    return res;
   }
 
   Future<Null> init([String? language]) async {
