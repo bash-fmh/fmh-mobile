@@ -2,5 +2,6 @@
     "home": "ยอมรับ",
     "search": "ย้อนกลับ",
     "profile": "ยอมรับ",
-    "no_internet":"No internet Connection!! Please connect to internet and try again"
+    "no_internet":"No internet Connection!! Please connect to internet and try again",
+    "test_arg":"Hello {},\nThe data are:\nToday: {}\nTomorrow: {}\nNext week: {}"
 }

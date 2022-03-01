@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
+import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
+import 'package:fmh_mobile/ui/shared/roboto_style.dart';
 import 'package:fmh_mobile/ui/widget/buttons.dart';
 import '../base_view.dart';
 
@@ -44,8 +46,28 @@ class HomeView extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('data'),
-                    )
+                      child: Text(
+                        'Test arg 1:',
+                        style: RobotoStyle.h1,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Text(getLocalization.testArg1(
+                          parm1: 'param2', parm2: 'param2')),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 24),
+                      child: Text(
+                        'Test arg 2',
+                        style: RobotoStyle.h1,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Text(getLocalization
+                          .testArg2(args: ['Bash', '30', '40', '50'])),
+                    ),
                   ],
                 );
             }

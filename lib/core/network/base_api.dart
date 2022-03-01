@@ -49,16 +49,22 @@ class Api {
     }
   }
 
-  Future<Map<String, dynamic>> post(String endpoint, Map<String, dynamic> body,
+  Future<Map<String, dynamic>> post(String endpoint,
       {Map<String, dynamic>? queryParam,
+      Map<String, dynamic>? body,
       bool authorizedHeader = false,
+      FormData? formData,
       ProgressCallback? onSendProgress}) async {
     try {
       dio.options.baseUrl = baseUrl;
       if (authorizedHeader) await setAuthorizedHeader();
       final Response response = await dio.post(endpoint,
           queryParameters: queryParam,
-          data: body,
+          data: formData != null
+              ? formData
+              : body != null
+                  ? body
+                  : {},
           onSendProgress: onSendProgress);
       return await _processResponse(response);
     } catch (e) {
