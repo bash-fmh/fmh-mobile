@@ -42,7 +42,7 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                           textAlign: TextAlign.left,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        backgroundColor: ThemeColor.brandYellow)
+                        backgroundColor: ThemeColor.sunny500)
                     : null,
                 resizeToAvoidBottomInset: false,
                 bottomNavigationBar: nav.NavigationBar(

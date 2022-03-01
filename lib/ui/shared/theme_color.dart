@@ -3,44 +3,69 @@ import 'package:flutter/material.dart';
 class ThemeColor {
   ThemeColor._();
 
-  static const Color brandYellow = Color(0xFFFDCF33);
-  static const Color brandLightBlue = Color(0xFF3D82C3);
-  static const Color brandDarkBlue = Color(0xFF173559);
+  // source: https://www.figma.com/file/l1xFc1zNFoCRoK2JERUtf6/Ligature-DS%3A-Component?node-id=506%3A8108
 
-  static const Color dot = Color(0xFFFCF9F7);
-  static const Color tabSelectedColor = Color(0xFF365EFF);
-  static const Color tabBackground = Color(0xFFEDF0FF);
+  static const Color sunny100 = Color(0xFFFFFDF8);
+  static const Color sunny200 = Color(0xFFFDEFD7);
+  static const Color sunny300 = Color(0xFFFCE2B4);
+  static const Color sunny500 = Color(0xFFF5A00D);
+  static const Color sunny600 = Color(0xFFE88011);
+  static const Color sunny700 = Color(0xFFB25E05);
 
-  /// Shades Color
-  static const Color shade05 = Color(0xFFF5F5F5);
-  static const Color shade10 = Color(0xFFEBEBEB);
-  static const Color shade30 = Color(0xFFB2B2B2);
-  static const Color shade50 = Color(0xFF808080);
-  static const Color shade80 = Color(0xFF333333);
-  static const Color shadeWhite = Color(0xFFFFFFFF);
+  static const Color brass100 = Color(0xFFF9F8F5);
+  static const Color brass200 = Color(0xFFD5C9B9);
+  static const Color brass300 = Color(0xFFAB987F);
+  static const Color brass400 = Color(0xFF846E52);
+  static const Color brass500 = Color(0xFF745E42);
+  static const Color brass600 = Color(0xFF574732);
+  static const Color brass700 = Color(0xFF403425);
+
+  static const Color gray000 = Color(0xFFFFFFFF);
+  static const Color gray100 = Color(0xFFF7FAFC);
+  static const Color gray200 = Color(0xFFEDF2F7);
+  static const Color gray300 = Color(0xFFE2E8F0);
+  static const Color gray400 = Color(0xFFCBD5E0);
+  static const Color gray500 = Color(0xFFA0AEC0);
+  static const Color gray600 = Color(0xFF718096);
+  static const Color gray700 = Color(0xFF4A5568);
+  static const Color gray800 = Color(0xFF2D3748);
+  static const Color gray900 = Color(0xFF1A202C);
+
+  static const Color blue100 = Color(0xFFEDF9FE);
+  static const Color blue400 = Color(0xFF4A97E4);
+  static const Color blue500 = Color(0xFF1F72C4);
+  static const Color blue600 = Color(0xFF12508D);
+
+  static const Color purple100 = Color(0xFFF2F3F9);
+  static const Color purple400 = Color(0xFFADADF3);
+  static const Color purple500 = Color(0xFF6C66B9);
+  static const Color purple600 = Color(0xFF433A83);
+
+  static const Color turqoise100 = Color(0xFFE5FAF9);
+  static const Color turqoise400 = Color(0xFF02C2BD);
+  static const Color turqoise500 = Color(0xFF147C79);
+  static const Color turqoise600 = Color(0xFF0E605C);
+
+  static const Color green100 = Color(0xFFDCF4D2);
+  static const Color green400 = Color(0xFF6DBB4C);
+  static const Color green500 = Color(0xFF3A7E1D);
+  static const Color green600 = Color(0xFF25590F);
+
+  static const Color amber100 = Color(0xFFFFF7D9);
+  static const Color amber400 = Color(0xFFF5C006);
+  static const Color amber500 = Color(0xFF884D17);
+  static const Color amber600 = Color(0xFF66310B);
+
+  static const Color salmon100 = Color(0xFFFCE9E3);
+  static const Color salmon400 = Color(0xFFEC7D59);
+  static const Color salmon500 = Color(0xFFBF4119);
+  static const Color salmon600 = Color(0xFF983414);
+
+  // Colors used in Figma design but doesn't have any name attached
+  static const Color sunny550 = Color(0xFFF17F2C);
+  static const Color salmon450 = Color(0xFFD02B20);
+
+  // Other colors
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
-
-  /// support Colors
-  static const Color infoB100 = Color(0xFFD9F2FC);
-  static const Color infoB500 = Color(0xFF3D82C3);
-  static const Color infoB700 = Color(0xFF1E4B8C);
-  static const Color errorR100 = Color(0xFFFCE4D6);
-  static const Color errorR500 = Color(0xFFCC3633);
-  static const Color errorR700 = Color(0xFF92192C);
-  static const Color successG100 = Color(0xFFD4FBDC);
-  static const Color successG500 = Color(0xFF2AAF78);
-  static const Color successG700 = Color(0xFF157D67);
-  static const Color warningO100 = Color(0xFFFEEED7);
-  static const Color warningO500 = Color(0xFFF59238);
-  static const Color warningO700 = Color(0xFFB0531C);
-  static const Color lightestGrey = Color.fromRGBO(35, 31, 32, 0.08);
-  static const Color grey = Color.fromRGBO(35, 31, 32, 0.56);
-
-  static const Color sunny500 = Color(0xFFB0531C);
-
-  static const List<Color> placeholder = [
-    Color.fromRGBO(35, 31, 32, 0.08),
-    Color.fromRGBO(35, 31, 32, 0.16)
-  ];
 }
