@@ -14,11 +14,8 @@ class SplashView extends ConsumerWidget {
         return Scaffold(
           backgroundColor: ThemeColor.sunny500,
           body: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 140.0),
-              child: Image.asset(
-                ConstantAsset.splashIcon,
-              ),
+            child: Image.asset(
+              ConstantAsset.splashIcon,
             ),
           ),
         );
