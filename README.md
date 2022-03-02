@@ -30,13 +30,14 @@ Project started in Feb 28, 2022.
 
 ## Packages
 
-- **shared_preferences**: Wraps platform-specific persistent storage for simple data.
-- **flutter_pulltorefresh:** a widget for scroll component. pull up load and pull down refresh.
-- **package_info:** for querying information about an application package.
 - **firebase_messaging:** to use the [Firebase Cloud Messaging (FCM) API](https://firebase.google.com/docs/cloud-messaging/).
 - **firebase_core:** to use the Firebase Core API, which enables connecting to multiple Firebase apps.
 - **firebase_crashlytics:** to use the [Firebase Crashlytics API](https://firebase.google.com/docs/crashlytics/).
+- **flutter_pulltorefresh:** a widget for scroll component. pull up load and pull down refresh.
+- **google_fonts:** to use [Google Font](https://pub.dev/packages/google_fonts)
+- **package_info:** for querying information about an application package.
 - **sentry_flutter:** Error Tracking
+- **shared_preferences**: Wraps platform-specific persistent storage for simple data.
 
 ## <span dir="">Features</span>
 
