@@ -5,24 +5,101 @@ import 'package:google_fonts/google_fonts.dart';
 class GoogleStyle {
   GoogleStyle._();
 
-  static TextStyle linkTextButton = GoogleFonts.inter(
-      color: ThemeColor.black,
-      fontSize: 12,
-      height: 16 / 12,
-      fontWeight: FontWeight.w400,
-      fontStyle: FontStyle.normal);
+  // Source: https://www.figma.com/file/l1xFc1zNFoCRoK2JERUtf6/Ligature-DS%3A-Component?node-id=601%3A8230
 
-  static TextStyle hintTextField = GoogleFonts.inter(
-      color: ThemeColor.black,
-      fontSize: 16,
-      height: 22 / 16,
-      fontWeight: FontWeight.w400,
-      fontStyle: FontStyle.normal);
+  static TextStyle displayLarge = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 42,
+    height: 52,
+    fontWeight: FontWeight.w700,
+    fontStyle: FontStyle.normal,
+  );
 
-  static TextStyle dropDownItem = GoogleFonts.inter(
-      color: ThemeColor.black,
-      fontSize: 16,
-      fontWeight: FontWeight.w400,
-      fontStyle: FontStyle.normal,
-      height: 1.375);
+  static TextStyle displayBold = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 30,
+    height: 36,
+    fontWeight: FontWeight.w700,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle display = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 30,
+    height: 36,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle headingBold = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 22,
+    height: 28,
+    fontWeight: FontWeight.w700,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle heading = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 22,
+    height: 28,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle subheading = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 16,
+    height: 20,
+    fontWeight: FontWeight.w700,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle subheading2 = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 16,
+    height: 20,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle button = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 16,
+    height: 20,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle bodyText = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 16,
+    height: 20,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle captionBold = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 12,
+    height: 16,
+    fontWeight: FontWeight.w700,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle captionSemibold = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 12,
+    height: 16,
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
+
+  static TextStyle caption = GoogleFonts.inter(
+    color: ThemeColor.gray800,
+    fontSize: 12,
+    height: 16,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+  );
 }
