@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
+import 'package:fmh_mobile/core/theme/sf_pro_font_style.dart';
+import 'package:fmh_mobile/core/theme/theme_color.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
-import 'package:fmh_mobile/ui/shared/roboto_style.dart';
-import 'package:fmh_mobile/ui/shared/theme_color.dart';
 
 class NavigationBar extends StatelessWidget {
   const NavigationBar(this.ref);
@@ -18,9 +18,9 @@ class NavigationBar extends StatelessWidget {
         child: Container(
           height: 56,
           decoration: BoxDecoration(
-              color: ThemeColor.shadeWhite,
-              border: Border(
-                  top: BorderSide(color: ThemeColor.lightestGrey, width: 1))),
+              color: ThemeColor.gray000,
+              border:
+                  Border(top: BorderSide(color: ThemeColor.white, width: 1))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(viewModel.navButtons.length, (index) {
@@ -46,7 +46,7 @@ class NavigationBar extends StatelessWidget {
                             ),
                             Text(
                               currentNav.name ?? '',
-                              style: RobotoStyle.caption.copyWith(
+                              style: SfProStyle.subtitle1.copyWith(
                                   color: _getColor(
                                       currentNav.navButtonType, selectedNav)),
                             )
@@ -63,8 +63,6 @@ class NavigationBar extends StatelessWidget {
   }
 
   Color _getColor(NavButtonType currentNav, NavButtonType selectedNav) {
-    return currentNav == selectedNav
-        ? ThemeColor.brandLightBlue
-        : ThemeColor.grey;
+    return currentNav == selectedNav ? ThemeColor.sunny500 : ThemeColor.gray600;
   }
 }

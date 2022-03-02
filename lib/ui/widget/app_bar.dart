@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fmh_mobile/ui/shared/theme_color.dart';
+import 'package:fmh_mobile/core/theme/theme_color.dart';
 
 import 'curved_shape_background.dart';
 
@@ -9,7 +9,7 @@ AppBar getAppBar(
     bool centerTitle = false,
     bool automaticallyImplyLeading = true,
     Widget? leading,
-    Color backgroundColor = ThemeColor.shadeWhite}) {
+    Color backgroundColor = ThemeColor.sunny100}) {
   return AppBar(
     title: title,
     backgroundColor: backgroundColor,
@@ -28,7 +28,7 @@ PreferredSizeWidget getCurvedAppBar(
     centerTitle: true,
     title: title,
     elevation: 0,
-    backgroundColor: ThemeColor.brandYellow,
+    backgroundColor: ThemeColor.sunny500,
     shape: CurvedShape(),
   );
 }

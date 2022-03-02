@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
+import 'package:fmh_mobile/core/theme/sf_pro_font_style.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
-import 'package:fmh_mobile/ui/shared/roboto_style.dart';
+
 import '../base_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -46,7 +47,7 @@ class HomeView extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Test arg 1:',
-                        style: RobotoStyle.h1,
+                        style: SfProStyle.title,
                       ),
                     ),
                     Padding(
@@ -58,7 +59,7 @@ class HomeView extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 24),
                       child: Text(
                         'Test arg 2',
-                        style: RobotoStyle.h1,
+                        style: SfProStyle.title,
                       ),
                     ),
                     Padding(
