@@ -68,7 +68,12 @@ Project started in Feb 28, 2022.
       - Invalid username or password
     - If all information are correct then user will be able to log in successfully
     - Once user is logged in, the app retains login status so when user kills and opens app again, user will remain logged in
-   
+
+
+## Designs
+- [Typography](https://www.figma.com/file/l1xFc1zNFoCRoK2JERUtf6/Ligature-DS%3A-Component?node-id=601%3A8230)
+- [Color pallete](https://www.figma.com/file/l1xFc1zNFoCRoK2JERUtf6/Ligature-DS%3A-Component?node-id=601%3A8230)
+- [UI references](https://www.figma.com/file/VpJVcRFAVH96E4X1SaPfYn/FMH-Mob.?node-id=0%3A1)
 
 ## How to run the app
 
