@@ -37,7 +37,7 @@ class _DashboardViewState extends ConsumerState<DashboardView>
                         centerTitle: true,
                         title: Text(
                           'Food & Delivery',
-                          style: GoogleStyle.linkTextButton,
+                          style: GoogleStyle.button,
                           maxLines: 1,
                           textAlign: TextAlign.left,
                           overflow: TextOverflow.ellipsis,
