@@ -16,9 +16,6 @@ enum AppEnvironment {
 }
 enum NavButtonType {
   dashboard,
-  orders,
-  products,
-  suppliers,
   notification,
   apps,
 }
