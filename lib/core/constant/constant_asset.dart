@@ -14,7 +14,7 @@ class ConstantAsset {
   static const String burgerMenu = '${_imagePath}burger_menu.png';
   static const String notification = '${_imagePath}notification.png';
   static const String sortDown = '${_imagePath}sort_down.png';
-  static const String reload = '${_imagePath}refresh.png';
+  static const String reload = '${_imagePath}reload_outline.png';
   static const String refresh = '${_imagePath}refresh.png';
   static const String dashboardEnterprise =
       '${_imagePath}dashboard_enterprise.png';
