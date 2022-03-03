@@ -67,6 +67,13 @@ Project started in Feb 28, 2022.
       - Invalid username or password
     - If all information are correct then user will be able to log in successfully
     - Once user is logged in, the app retains login status so when user kills and opens app again, user will remain logged in
+  - **Landing Screen:**
+    - User should be able to choose between dashboard, apps and notification
+    - Dashboard Screen:
+        - Should be able to see the performance graph of MTD discard and MTD Variance
+        - Should be able to choose between MTD variance and MTD discard
+        - Should able to see top 10 of discard and variance items
+        - Should be able to swap between cost and qty of each MTD variance and discard 
    
 
 ## How to run the app
