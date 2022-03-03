@@ -5,48 +5,52 @@ import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/exception/unauthorized.dart';
 import 'package:fmh_mobile/core/model/nav_button_model.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
-import 'package:fmh_mobile/core/service/locator/locator.dart';
-import 'package:fmh_mobile/core/service/service.dart';
+
 import 'base_viewmodel.dart';
+
 
 final vmProvider = ChangeNotifierProvider<DashboardVM>((ref) => DashboardVM());
 
 class DashboardVM extends BaseViewModel {
   TabController? _tabController;
+
   TabController? get tabController => _tabController;
 
-  final Service _service = locator<ServiceImpl>();
+  // Disable temporary
+  // final Service _service = locator<ServiceImpl>();
 
   bool _selected = false;
+
   bool? get selected => _selected;
 
-  List<NavButton> get navButtons => _navButtons;
+  List<NavButton> get navButtons => _navButtonsEnterprise;
 
-  NavButtonType _selectedNavButton = NavButtonType.home;
+  NavButtonType _selectedNavButton = NavButtonType.dashboard;
+
   NavButtonType get selectedNavButton => _selectedNavButton;
 
-  final List<NavButton> _navButtons = [
+  final List<NavButton> _navButtonsEnterprise = [
     NavButton(
-        navButtonType: NavButtonType.home,
-        name: getLocalization.home,
-        asset: ConstantAsset.block,
+        navButtonType: NavButtonType.dashboard,
+        name: getLocalization.dashboard,
+        asset: ConstantAsset.dashboardEnterprise,
         buttonStatus: ButtonStatus.active),
     NavButton(
-        navButtonType: NavButtonType.search,
-        name: getLocalization.search,
-        asset: ConstantAsset.search,
-        buttonStatus: ButtonStatus.active),
+        navButtonType: NavButtonType.apps,
+        name: getLocalization.apps,
+        asset: ConstantAsset.dashboard,
+        buttonStatus: ButtonStatus.deactivate),
     NavButton(
-        navButtonType: NavButtonType.profile,
-        name: getLocalization.profile,
-        asset: ConstantAsset.cart,
+        navButtonType: NavButtonType.notification,
+        name: getLocalization.notification,
+        asset: ConstantAsset.notification,
         buttonStatus: ButtonStatus.deactivate),
   ];
 
   Future<void> init(TickerProvider tickerProvider, {int index = 0}) async {
     _tabController = TabController(
       vsync: tickerProvider,
-      length: 3,
+      length: _navButtonsEnterprise.length,
       initialIndex: index,
     );
   }
@@ -54,7 +58,7 @@ class DashboardVM extends BaseViewModel {
   set selectedNavButton(NavButtonType? selectedNav) {
     if (selectedNav != null && _selectedNavButton != selectedNav) {
       _selectedNavButton = selectedNav;
-      for (NavButton nav in _navButtons) {
+      for (NavButton nav in _navButtonsEnterprise) {
         if (nav.navButtonType == selectedNav) {
           nav.buttonStatus = ButtonStatus.active;
         } else {
@@ -62,13 +66,13 @@ class DashboardVM extends BaseViewModel {
         }
       }
       switch (selectedNav) {
-        case NavButtonType.home:
+        case NavButtonType.dashboard:
           tabController?.animateTo(0);
           break;
-        case NavButtonType.search:
+        case NavButtonType.apps:
           tabController?.animateTo(1);
           break;
-        case NavButtonType.profile:
+        case NavButtonType.notification:
           tabController?.animateTo(2);
           break;
         default:
@@ -85,8 +89,9 @@ class DashboardVM extends BaseViewModel {
   Future<void> onHome() async {
     try {
       setBusy();
-      final countries = (await _service.getCountryList()).countries ?? [];
-      print(countries.toString());
+      // final countries = (await _service.getCountryList()).countries ?? [];
+      // print(countries.toString());
+      print('load home');
       setIdle();
     } catch (e, s) {
       setError(e, s);
@@ -96,6 +101,18 @@ class DashboardVM extends BaseViewModel {
   Future<void> testThrow() async {
     // to test and show how runZonedGuarded catch uncaught exceptions
     throw UnAuthorizedException;
+  }
+
+  void onSearchTap() {
+    debugPrint('search');
+  }
+
+  void onNotificationTap() {
+    debugPrint('notification');
+  }
+
+  void onMenuListTap() {
+    debugPrint('menu list');
   }
 
   @override

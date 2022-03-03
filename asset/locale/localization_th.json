@@ -1,7 +1,17 @@
 {
-    "home": "ยอมรับ",
-    "search": "ย้อนกลับ",
-    "profile": "ยอมรับ",
+    "dashboard": "หน้าหลัก",
+    "apps": "แอพ",
+    "notification": "การแจ้งเตือน",
+    "mtdVariance": "MTD ความแปรปรวน",
+    "mtdDiscard": "MTD ทิ้ง",
+    "mtdSales": "MTD ฝ่ายขาย",
+    "cost": "ค่าใช้จ่าย",
+    "qty": "จำนวน",
+    "topDiscard": "Top 10 Discard Items",
+    "topVariance": "Top 10 Variance Items",
     "no_internet":"No internet Connection!! Please connect to internet and try again",
-    "test_arg":"Hello {},\nThe data are:\nToday: {}\nTomorrow: {}\nNext week: {}"
+    "test_arg":"Hello {},\nThe data are:\nToday: {}\nTomorrow: {}\nNext week: {}",
+    "orders": "คำสั่ง",
+    "suppliers": "ซัพพลายเออร์",
+    "products": "ผลิตภัณฑ์"
 }

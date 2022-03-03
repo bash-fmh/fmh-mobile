@@ -1,34 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:fmh_mobile/core/theme/theme_color.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fmh_mobile/core/constant/constant_asset.dart';
+import 'package:fmh_mobile/core/viewmodel/enterprise/dashboard_vm.dart';
 
-import 'curved_shape_background.dart';
-
-AppBar getAppBar(
-    {required Widget title,
-    List<Widget>? actions,
-    bool centerTitle = false,
-    bool automaticallyImplyLeading = true,
-    Widget? leading,
-    Color backgroundColor = ThemeColor.sunny100}) {
-  return AppBar(
-    title: title,
-    backgroundColor: backgroundColor,
-    elevation: 0.0,
-    actions: actions ?? [],
-    leading: leading,
-    centerTitle: centerTitle,
-    automaticallyImplyLeading: automaticallyImplyLeading,
-  );
-}
-
-PreferredSizeWidget getCurvedAppBar(
-    {Widget? title, bool centerTitle = true, Widget? leading}) {
-  return AppBar(
-    leading: leading,
-    centerTitle: true,
-    title: title,
-    elevation: 0,
-    backgroundColor: ThemeColor.sunny500,
-    shape: CurvedShape(),
+PreferredSize getCustomAppBar(WidgetRef ref) {
+  return PreferredSize(
+    preferredSize: const Size(double.infinity, kToolbarHeight),
+    child: SizedBox.expand(
+      child: Container(
+        color: Colors.transparent,
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              children: <Widget>[
+                Image.asset(ConstantAsset.mainLogoIcon),
+                const Spacer(),
+                InkWell(
+                    onTap: ref.read<DashboardVM>(vmProvider).onSearchTap,
+                    child: Image.asset(ConstantAsset.search)),
+                const SizedBox(width: 15),
+                InkWell(
+                    onTap: ref
+                        .read<DashboardVM>(vmProvider)
+                        .onNotificationTap,
+                    child: Image.asset(ConstantAsset.notification)),
+                const SizedBox(width: 15),
+                InkWell(
+                    onTap:
+                    ref.read<DashboardVM>(vmProvider).onMenuListTap,
+                    child: Image.asset(ConstantAsset.burgerMenu)),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
   );
 }

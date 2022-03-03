@@ -1,7 +1,10 @@
+import 'package:fmh_mobile/core/constant/dummy_data.dart';
 import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/model/country_model.dart';
+import 'package:fmh_mobile/core/model/enterprise/mtd_top_model.dart';
 import 'package:fmh_mobile/core/model/product.dart';
 import 'package:fmh_mobile/core/network/network_service.dart';
+
 import 'locator/locator.dart';
 import 'sharedpreferences/shared_preferences.dart';
 
@@ -9,12 +12,10 @@ abstract class Service {
   Future<CountryModelResponse> getCountryList();
   Future<MealModelResponse> getMealList({required String country});
   Future<String?> getToken();
-
   Future<String?> getPreferredLanguage();
-
   Future<bool> setPreferredLanguage(String lang);
-
   Future<String?> getApplicationSavedInformation(String name);
+  Future<MTDTopModelResponse> getMTDList();
 }
 
 class ServiceImpl implements Service {
@@ -34,6 +35,7 @@ class ServiceImpl implements Service {
   Future<String?> getToken() async => await _preferencesService.getString(
         key: ConstantStrings.userToken,
       );
+
   @override
   Future<String?> getPreferredLanguage() async {
     return getApplicationSavedInformation('${ConstantStrings.language}');
@@ -55,4 +57,8 @@ class ServiceImpl implements Service {
     return _preferencesService.setString(
         key: '${ConstantStrings.storageKey}$name', value: value);
   }
+
+  @override
+  Future<MTDTopModelResponse> getMTDList() => Future<MTDTopModelResponse>.value(
+      MTDTopModelResponse.fromJson(DummyData.mtdTopList));
 }

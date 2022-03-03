@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
+import 'package:fmh_mobile/core/viewmodel/enterprise/dashboard_vm.dart';
 
 import '../base_view.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fmh_mobile/ui/view/dashboard/dasboard_view.dart';
+import 'package:fmh_mobile/ui/view/enterprise/dashboard/dasboard_view.dart';
 import 'package:fmh_mobile/ui/view/splash/splash_view.dart';
 
 class NavRouter {
