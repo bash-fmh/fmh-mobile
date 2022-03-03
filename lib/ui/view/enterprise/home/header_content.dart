@@ -25,7 +25,7 @@ class HeaderContent extends StatelessWidget {
                           .copyWith(color: ThemeColor.white, fontSize: 14),
                     ),
                     Text(
-                      '+KIOSK PORT KLANG (closed since  31/12/19)',
+                      '+KIOSK PORT KLANG (closed since 31/12/19)',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                       style: GoogleStyle.bodyText.copyWith(
@@ -39,6 +39,7 @@ class HeaderContent extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(width: 10),
               Image.asset(
                 ConstantAsset.reload,
                 color: ThemeColor.white,
