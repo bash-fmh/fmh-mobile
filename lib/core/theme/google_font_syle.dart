@@ -10,7 +10,7 @@ class GoogleStyle {
   static TextStyle displayLarge = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 42,
-    height: 52,
+    height: 52 / 42,
     fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal,
   );
@@ -18,7 +18,7 @@ class GoogleStyle {
   static TextStyle displayBold = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 30,
-    height: 36,
+    height: 36 / 30,
     fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal,
   );
@@ -26,7 +26,7 @@ class GoogleStyle {
   static TextStyle display = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 30,
-    height: 36,
+    height: 36 / 30,
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
   );
@@ -34,7 +34,7 @@ class GoogleStyle {
   static TextStyle headingBold = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 22,
-    height: 28,
+    height: 28 / 22,
     fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal,
   );
@@ -42,7 +42,7 @@ class GoogleStyle {
   static TextStyle heading = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 22,
-    height: 28,
+    height: 28 / 22,
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
   );
@@ -50,7 +50,7 @@ class GoogleStyle {
   static TextStyle subheading = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 16,
-    height: 20,
+    height: 20 / 16,
     fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal,
   );
@@ -58,7 +58,7 @@ class GoogleStyle {
   static TextStyle subheading2 = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 16,
-    height: 20,
+    height: 20 / 16,
     fontWeight: FontWeight.w600,
     fontStyle: FontStyle.normal,
   );
@@ -66,7 +66,7 @@ class GoogleStyle {
   static TextStyle button = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 16,
-    height: 20,
+    height: 20 / 16,
     fontWeight: FontWeight.w600,
     fontStyle: FontStyle.normal,
   );
@@ -74,7 +74,7 @@ class GoogleStyle {
   static TextStyle bodyText = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 16,
-    height: 20,
+    height: 20 / 16,
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
   );
@@ -82,7 +82,7 @@ class GoogleStyle {
   static TextStyle captionBold = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 12,
-    height: 16,
+    height: 16 / 12,
     fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal,
   );
@@ -90,7 +90,7 @@ class GoogleStyle {
   static TextStyle captionSemibold = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 12,
-    height: 16,
+    height: 16 / 12,
     fontWeight: FontWeight.w600,
     fontStyle: FontStyle.normal,
   );
@@ -98,7 +98,7 @@ class GoogleStyle {
   static TextStyle caption = GoogleFonts.inter(
     color: ThemeColor.gray800,
     fontSize: 12,
-    height: 16,
+    height: 16 / 12,
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
   );

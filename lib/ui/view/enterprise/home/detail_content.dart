@@ -103,7 +103,7 @@ class _CustomButton extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: AnimatedDefaultTextStyle(
                 duration: animDuration,
-                style: GoogleStyle.bodyText1.copyWith(
+                style: GoogleStyle.bodyText.copyWith(
                     fontSize: 12,
                     color: isSelected ? ThemeColor.white : ThemeColor.sunny500),
                 child: Text(text)),

@@ -27,10 +27,10 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 def dartEnvironmentVariables = [
         ENVDEFINE_GOOGLE_MAP_API_KEY: null
-];
+]
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

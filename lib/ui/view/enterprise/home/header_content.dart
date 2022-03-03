@@ -21,19 +21,19 @@ class HeaderContent extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       '1130033',
-                      style: GoogleStyle.bodyText1
+                      style: GoogleStyle.bodyText
                           .copyWith(color: ThemeColor.white, fontSize: 14),
                     ),
                     Text(
                       '+KIOSK PORT KLANG (closed since  31/12/19)',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
-                      style: GoogleStyle.bodyText1.copyWith(
+                      style: GoogleStyle.bodyText.copyWith(
                           color: ThemeColor.white, fontWeight: FontWeight.w700),
                     ),
                     Text(
                       '01 Mar 2022 - 02 Mar 2022',
-                      style: GoogleStyle.bodyText1
+                      style: GoogleStyle.bodyText
                           .copyWith(color: ThemeColor.white, fontSize: 12),
                     ),
                   ],

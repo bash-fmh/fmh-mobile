@@ -25,7 +25,7 @@ class MtdPerformance extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 '$mtdTitle vs ${getLocalization.mtdSales}',
-                style: GoogleStyle.bodyText1.copyWith(
+                style: GoogleStyle.bodyText.copyWith(
                     color: ThemeColor.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 12),
@@ -51,7 +51,7 @@ class MtdPerformance extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     child: Text(
                       mtdVarianceSelected ? '30%' : '50%',
-                      style: GoogleStyle.bodyText1
+                      style: GoogleStyle.bodyText
                           .copyWith(fontSize: 12, color: ThemeColor.gray900),
                     ),
                   )
@@ -109,13 +109,13 @@ class _CustomSales extends StatelessWidget {
 
   TableRow _getTableValue({required String text1, required String text2}) {
     final performanceStyle =
-        GoogleStyle.bodyText1.copyWith(color: ThemeColor.gray900, fontSize: 12);
+        GoogleStyle.bodyText.copyWith(color: ThemeColor.gray900, fontSize: 12);
 
     return TableRow(children: <Widget>[
       Text(
         text1,
         textAlign: TextAlign.right,
-        style: GoogleStyle.bodyText1
+        style: GoogleStyle.bodyText
             .copyWith(color: ThemeColor.blue600, fontSize: 12),
       ),
       Text('/', textAlign: TextAlign.center, style: performanceStyle),

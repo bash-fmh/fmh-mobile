@@ -60,7 +60,7 @@ class VarianceItemList extends StatelessWidget {
                         mtdSelected == MTDType.variance
                             ? getLocalization.topVariance
                             : getLocalization.topDiscard,
-                        style: GoogleStyle.bodyText1.copyWith(
+                        style: GoogleStyle.bodyText.copyWith(
                           color: ThemeColor.gray900,
                           fontWeight: FontWeight.w700,
                           fontSize: 14,
@@ -122,7 +122,7 @@ class _CustomButton extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: AnimatedDefaultTextStyle(
               duration: animDuration,
-              style: GoogleStyle.bodyText1.copyWith(
+              style: GoogleStyle.bodyText.copyWith(
                   color: !isSelected ? ThemeColor.gray500 : ThemeColor.sunny700,
                   fontSize: 10),
               child: Text(text),
@@ -191,5 +191,5 @@ class _MTDTopList extends ConsumerWidget {
   }
 
   TextStyle _getTextStyle() =>
-      GoogleStyle.bodyText1.copyWith(color: ThemeColor.gray900, fontSize: 13);
+      GoogleStyle.bodyText.copyWith(color: ThemeColor.gray900, fontSize: 13);
 }
