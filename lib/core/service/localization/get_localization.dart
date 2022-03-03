@@ -8,13 +8,13 @@ class GetLocalization {
   String get supplier => localizationService.text('suppliers');
   String get apps => localizationService.text('apps');
   String get notification => localizationService.text('notification');
-  String get mtdVariance => localizationService.text('mtdVariance');
-  String get mtdDiscard => localizationService.text('mtdDiscard');
-  String get mtdSales => localizationService.text('mtdSales');
+  String get mtdVariance => localizationService.text('mtd_variance');
+  String get mtdDiscard => localizationService.text('mtd_discard');
+  String get mtdSales => localizationService.text('mtd_sales');
   String get cost => localizationService.text('cost');
   String get qty => localizationService.text('qty');
-  String get topVariance => localizationService.text('topVariance');
-  String get topDiscard => localizationService.text('topDiscard');
+  String get topVariance => localizationService.text('top_variance');
+  String get topDiscard => localizationService.text('top_discard');
   String get noInternet => localizationService.text('no_internet');
 
   String testArg1({required String parm1, required String parm2}) =>
