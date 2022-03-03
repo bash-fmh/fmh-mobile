@@ -30,13 +30,14 @@ Project started in Feb 28, 2022.
 
 ## Packages
 
-- **shared_preferences**: Wraps platform-specific persistent storage for simple data.
-- **flutter_pulltorefresh:** a widget for scroll component. pull up load and pull down refresh.
-- **package_info:** for querying information about an application package.
 - **firebase_messaging:** to use the [Firebase Cloud Messaging (FCM) API](https://firebase.google.com/docs/cloud-messaging/).
 - **firebase_core:** to use the Firebase Core API, which enables connecting to multiple Firebase apps.
 - **firebase_crashlytics:** to use the [Firebase Crashlytics API](https://firebase.google.com/docs/crashlytics/).
+- **flutter_pulltorefresh:** a widget for scroll component. pull up load and pull down refresh.
+- **google_fonts:** to use [Google Font](https://pub.dev/packages/google_fonts)
+- **package_info:** for querying information about an application package.
 - **sentry_flutter:** Error Tracking
+- **shared_preferences**: Wraps platform-specific persistent storage for simple data.
 
 ## <span dir="">Features</span>
 
@@ -67,12 +68,17 @@ Project started in Feb 28, 2022.
       - Invalid username or password
     - If all information are correct then user will be able to log in successfully
     - Once user is logged in, the app retains login status so when user kills and opens app again, user will remain logged in
-   
+
 ## App Icon & Splash Screen
 For splash screen, this app have android, ios and flutter splash screen.
 - **iOS App Icon:** [App Icon](https://drive.google.com/file/d/1_g4cT11wWTg6vFfkDVkagsiCzsJ2ZOtT/view?usp=sharing).
 - **Android App Icon:** [App Icon](https://drive.google.com/file/d/1KMXbo1QfWUeavpEYVNwM9l1-YDdiF2bI/view?usp=sharing).
 - **Splash Screen:** [Splash Screen](https://drive.google.com/file/d/1PMKpGUZpeRo3VPJX8d6VlRJpi1OC3H5Q/view?usp=sharing).
+
+## Designs
+- [Typography](https://www.figma.com/file/l1xFc1zNFoCRoK2JERUtf6/Ligature-DS%3A-Component?node-id=601%3A8230)
+- [Color pallete](https://www.figma.com/file/l1xFc1zNFoCRoK2JERUtf6/Ligature-DS%3A-Component?node-id=601%3A8230)
+- [UI references](https://www.figma.com/file/VpJVcRFAVH96E4X1SaPfYn/FMH-Mob.?node-id=0%3A1)
 
 ## How to run the app
 

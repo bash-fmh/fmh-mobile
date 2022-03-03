@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
-import 'package:fmh_mobile/core/theme/sf_pro_font_style.dart';
+import 'package:fmh_mobile/core/theme/google_font_syle.dart';
 import 'package:fmh_mobile/core/viewmodel/dashboard_vm.dart';
 
 import '../base_view.dart';
@@ -47,7 +47,7 @@ class HomeView extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Test arg 1:',
-                        style: SfProStyle.title,
+                        style: GoogleStyle.subheading,
                       ),
                     ),
                     Padding(
@@ -59,7 +59,7 @@ class HomeView extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 24),
                       child: Text(
                         'Test arg 2',
-                        style: SfProStyle.title,
+                        style: GoogleStyle.subheading,
                       ),
                     ),
                     Padding(
