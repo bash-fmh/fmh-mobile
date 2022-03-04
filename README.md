@@ -38,6 +38,7 @@ Project started in Feb 28, 2022.
 - **package_info:** for querying information about an application package.
 - **sentry_flutter:** Error Tracking
 - **shared_preferences**: Wraps platform-specific persistent storage for simple data.
+- **device_preview**: Approximate how your Flutter app looks and performs on another device.
 
 ## <span dir="">Features</span>
 
