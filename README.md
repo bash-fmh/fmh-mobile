@@ -24,7 +24,7 @@ Project started in Feb 28, 2022.
 
 ## Target OS version
 
-- Android: <span dir="">21</span> - <span dir="">30</span>
+- Android: <span dir="">21</span> - <span dir="">31</span>
 - iOS: <span dir="">12.1</span>
 
 
