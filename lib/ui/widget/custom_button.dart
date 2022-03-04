@@ -14,6 +14,7 @@ class CustomButton extends StatelessWidget {
     this.height = 44,
     this.enable = true,
     this.textStyle,
+    this.isLoading = false,
   }) : super(key: key);
 
   final double width;
@@ -25,11 +26,12 @@ class CustomButton extends StatelessWidget {
   final TextStyle? textStyle;
   final Color disableTextColor;
   final VoidCallback? callback;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
-      primary: enable ? enableColor : disableColor,
+      primary: _isAvailable() ? enableColor : disableColor,
       minimumSize: Size(width, height),
       padding: EdgeInsets.symmetric(horizontal: 16),
       shape: const RoundedRectangleBorder(
@@ -42,11 +44,24 @@ class CustomButton extends StatelessWidget {
 
     return ElevatedButton(
       style: elevatedButtonStyle,
-      onPressed: enable ? (callback ?? () {}) : () {},
-      child: Text(text,
-          style: enable
-              ? elevatedButtonTextStyle
-              : elevatedButtonTextStyle.copyWith(color: disableTextColor)),
+      onPressed: enable && !isLoading ? (callback ?? () {}) : () {},
+      child: isLoading
+          ? _loading()
+          : Text(text,
+              style: _isAvailable()
+                  ? elevatedButtonTextStyle
+                  : elevatedButtonTextStyle.copyWith(color: disableTextColor)),
+    );
+  }
+
+  bool _isAvailable() {
+    return enable && !isLoading;
+  }
+
+  Widget _loading() {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: CircularProgressIndicator(),
     );
   }
 }
