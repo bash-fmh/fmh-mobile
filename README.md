@@ -77,6 +77,12 @@ Project started in Feb 28, 2022.
         - Should be able to swap between cost and qty of each MTD variance and discard 
    
 
+## App Icon & Splash Screen
+For splash screen, this app have android, ios and flutter splash screen.
+- **iOS App Icon:** [App Icon](https://drive.google.com/file/d/1_g4cT11wWTg6vFfkDVkagsiCzsJ2ZOtT/view?usp=sharing).
+- **Android App Icon:** [App Icon](https://drive.google.com/file/d/1KMXbo1QfWUeavpEYVNwM9l1-YDdiF2bI/view?usp=sharing).
+- **Splash Screen:** [Splash Screen](https://drive.google.com/file/d/1PMKpGUZpeRo3VPJX8d6VlRJpi1OC3H5Q/view?usp=sharing).
+
 ## Designs
 - [Typography](https://www.figma.com/file/l1xFc1zNFoCRoK2JERUtf6/Ligature-DS%3A-Component?node-id=601%3A8230)
 - [Color pallete](https://www.figma.com/file/l1xFc1zNFoCRoK2JERUtf6/Ligature-DS%3A-Component?node-id=601%3A8230)

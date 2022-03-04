@@ -6,6 +6,7 @@ class ConstantAsset {
   static const String block = '${_imagePath}block.png';
   static const String search = '${_imagePath}search.png';
   static const String cart = '${_imagePath}cart.png';
+  static const String splashIcon = '${_imagePath}splashicon.png';
   static const String order = '${_imagePath}order.png';
   static const String dashboard = '${_imagePath}dashboard.png';
   static const String products = '${_imagePath}products.png';
