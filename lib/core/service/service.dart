@@ -1,6 +1,7 @@
 import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/model/country_model.dart';
 import 'package:fmh_mobile/core/model/product.dart';
+import 'package:fmh_mobile/core/network/mock_service/mock_service_json.dart';
 import 'package:fmh_mobile/core/network/network_service.dart';
 import 'locator/locator.dart';
 import 'sharedpreferences/shared_preferences.dart';
@@ -19,12 +20,14 @@ abstract class Service {
 
 class ServiceImpl implements Service {
   final NetworkService _networkService = locator<NetworkServiceImpl>();
+  final MockJsonProvider _mockJsonProvider = locator<MockJsonProvider>();
+
   final PreferencesService _preferencesService =
       locator<PreferencesServiceImpl>();
 
   @override
   Future<CountryModelResponse> getCountryList() async =>
-      await _networkService.getCountryList();
+      await _mockJsonProvider.getCountryMockJson();
 
   @override
   Future<MealModelResponse> getMealList({required String country}) async =>
