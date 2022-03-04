@@ -1,5 +1,3 @@
-import 'dart:io' show Platform;
-
 import 'package:flutter/material.dart';
 import 'package:fmh_mobile/core/constant/constant_asset.dart';
 import 'package:fmh_mobile/core/theme/google_font_syle.dart';
@@ -8,15 +6,11 @@ import 'package:fmh_mobile/core/theme/theme_color.dart';
 class HeaderContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double verticalPadding = 10;
-    final double topPadding = Platform.isAndroid
-        ? (MediaQuery.of(context).viewPadding.top + verticalPadding)
-        : verticalPadding.toDouble();
-
     return Container(
       color: ThemeColor.sunny500,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(15, topPadding, 15, verticalPadding),
+        padding: EdgeInsets.fromLTRB(
+            15, MediaQuery.of(context).viewPadding.top, 15, 10),
         child: _getBody(),
       ),
     );
