@@ -33,3 +33,12 @@ enum DeployApplicationType {
   legacy,
   v2,
 }
+enum ApplicationType {
+  enterprise,
+  legacy,
+  v2,
+}
+enum EnterpriseType {
+  kfc,
+  ph,
+}
