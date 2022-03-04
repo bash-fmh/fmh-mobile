@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fmh_mobile/ui/view/dashboard/dasboard_view.dart';
+import 'package:fmh_mobile/ui/view/login/login_view.dart';
 import 'package:fmh_mobile/ui/view/splash/splash_view.dart';
 
 class NavRouter {
@@ -7,6 +8,7 @@ class NavRouter {
 
   static const String initialRoute = '/';
   static const String dashboardRouter = '/dashboard';
+  static const String loginRouter = '/login';
 
   static MaterialPageRoute _pageRoute(Widget page) {
     return MaterialPageRoute(builder: (_) => page);
@@ -18,6 +20,8 @@ class NavRouter {
         return _pageRoute(SplashView());
       case dashboardRouter:
         return _pageRoute(DashboardView());
+      case loginRouter:
+        return _pageRoute(LoginView());
 
       default:
         return MaterialPageRoute(

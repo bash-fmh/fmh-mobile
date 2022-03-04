@@ -9,7 +9,7 @@ final vmProvider = ChangeNotifierProvider<StartupVM>((_) => StartupVM());
 class StartupVM extends BaseViewModel {
   Future<void> handleStartUp(BuildContext context) async {
     Future.delayed(Duration(seconds: 2), () {
-      navigationService.pushAndRemoveUntil(NavRouter.dashboardRouter);
+      navigationService.pushAndRemoveUntil(NavRouter.loginRouter);
     });
   }
 }
