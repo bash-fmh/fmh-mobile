@@ -1,4 +1,7 @@
 class MTDTopModelResponse {
+  const MTDTopModelResponse(
+      {required this.mtdDiscard, required this.mtdVariance});
+
   final List<MTDGeneral> mtdDiscard;
   final List<MTDGeneral> mtdVariance;
 
@@ -18,6 +21,8 @@ class MTDTopModelResponse {
 }
 
 class MTDGeneral {
+  const MTDGeneral({required this.name, required this.value});
+
   final String name;
   final double value;
 

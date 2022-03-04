@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fmh_mobile/core/viewmodel/enterprise/dashboard_vm.dart';
+import 'package:fmh_mobile/core/viewmodel/enterprise/landing_vm.dart';
 
 import '../base_view.dart';
 
@@ -12,7 +12,7 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView(
-      onInitReady: () => ref.read<DashboardVM>(vmProvider).testThrow(),
+      onInitReady: () => ref.read<LandingVM>(vmLandingProvider).testThrow(),
       didChangeAppLifeCycle: (state) {
         if (state == AppLifecycleState.resumed) {
           // example check for permission
@@ -24,7 +24,7 @@ class SearchView extends StatelessWidget {
         }
       },
       builder: (context) {
-        return Center(
+        return const Center(
           child: Text('Search'),
         );
       },

@@ -11,7 +11,7 @@ class _AppsViewState extends State<AppsView>
   Widget build(BuildContext context) {
     super.build(context);
 
-    return Center(
+    return const Center(
       child: Text('Apps View'),
     );
   }

@@ -1,7 +1,9 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'core/constant/enum.dart';
 import 'core/network/base_url.dart';
 import 'core/service/flavor_manager.dart';
@@ -27,7 +29,7 @@ Future<void> mainCommon(AppEnvironment env) async {
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     await localizationService.init().then((_) {
       runApp(
-        ProviderScope(child: MyApp()),
+        const ProviderScope(child: MyApp()),
       );
     });
   }, (e, s) {

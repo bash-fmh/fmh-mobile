@@ -11,7 +11,7 @@ class SplashView extends ConsumerWidget {
     return BaseView(
       onInitReady: () => ref.read<StartupVM>(vmProvider).handleStartUp(context),
       builder: (context) {
-        return Scaffold(
+        return const Scaffold(
           backgroundColor: ThemeColor.black,
           body: Text(
             'Welcome',

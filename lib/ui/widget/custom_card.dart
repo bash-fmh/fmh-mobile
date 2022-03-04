@@ -15,13 +15,13 @@ class CustomCard extends StatelessWidget {
           boxShadow: <BoxShadow>[
             BoxShadow(
               color: ThemeColor.eliteBlue.withOpacity(0.12),
-              offset: Offset(0, 8),
+              offset: const Offset(0, 8),
               blurRadius: 28,
               spreadRadius: -6,
             )
           ]),
       child:
-          Padding(padding: EdgeInsets.symmetric(horizontal: 15), child: child),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: 15), child: child),
     );
   }
 }

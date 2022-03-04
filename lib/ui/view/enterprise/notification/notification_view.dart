@@ -11,7 +11,7 @@ class _NotificationViewState extends State<NotificationView>
   Widget build(BuildContext context) {
     super.build(context);
 
-    return Center(
+    return const Center(
       child: Text('Notification View'),
     );
   }
