@@ -102,14 +102,14 @@ class FormV2 extends StatelessWidget {
                 style: GoogleStyle.caption,
                 children: <TextSpan>[
                   TextSpan(
-                    text: ' ${getLocalization.termsOfUse}',
+                    text: ' ${getLocalization.termsOfUse.toLowerCase()}',
                     style:
                         GoogleStyle.caption.copyWith(color: ThemeColor.blue400),
                     recognizer: TapGestureRecognizer()..onTap = () {},
                   ),
                   TextSpan(text: ' ${getLocalization.and}'),
                   TextSpan(
-                      text: ' ${getLocalization.privacyPolicy}',
+                      text: ' ${getLocalization.privacyPolicy.toLowerCase()}',
                       style: GoogleStyle.caption
                           .copyWith(color: ThemeColor.blue400),
                       recognizer: TapGestureRecognizer()..onTap = () {}),

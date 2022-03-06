@@ -4,7 +4,7 @@
     "profile": "Profil",
     "no_internet": "No internet Connection!! Please connect to internet and try again",
     "test_arg": "Hello {},\nThe data are:\nToday: {}\nTomorrow: {}\nNext week: {}",
-    "app_quote": "Modernize your F&B business",
+    "app_quote": "Modernkan bisnis F&B Anda",
     "kfc": "KFC",
     "ph": "PZ",
     "username": "Nama pengguna",
@@ -13,8 +13,8 @@
     "mobile_number_hint": "1234-5678",
     "continue": "Lanjut",
     "login": "Masuk",
-    "terms_of_use_statement": "By clicking continue, you are agreeing to our",
-    "terms_of_use": "Terms of use",
-    "and": "and",
-    "privacy_policy": "Privacy policy"
+    "terms_of_use_statement": "Dengan menekan tombol Lanjutkan berarti Anda telah menyetujui",
+    "terms_of_use": "Kebijakan pengguna",
+    "and": "dan",
+    "privacy_policy": "Kebijakan privasi kami"
 }
