@@ -3,7 +3,6 @@ enum ViewState {
   busy,
   empty,
   error,
-  loading,
 }
 enum ViewStateErrorType {
   defaultError,

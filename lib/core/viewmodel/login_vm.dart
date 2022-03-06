@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/constant_asset.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
+import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/model/country_model.dart';
 import 'base_viewmodel.dart';
 
@@ -10,6 +11,7 @@ class LoginVM extends BaseViewModel {
   final List<ApplicationType> _applicationTypeList = [];
   ApplicationType _selectedApplicationType = ApplicationType.enterprise;
 
+  final List<EnterpriseType> _enterpriseTypeList = [];
   EnterpriseType? _selectedEnterpriseType;
 
   final List<CountryModel> _countryList = [];
@@ -26,32 +28,47 @@ class LoginVM extends BaseViewModel {
       ApplicationType.v2,
     ]);
 
+    _enterpriseTypeList.addAll([EnterpriseType.kfc, EnterpriseType.ph]);
+
     _countryList.addAll([
       CountryModel(
           id: 1,
-          name: 'Hong Kong (香港)',
-          code: '+852',
+          name: ConstantStrings.countryNameHK,
+          code: ConstantStrings.countryCodeHK,
           image: ConstantAsset.flagHK),
       CountryModel(
-          id: 2, name: 'Indonesia', code: '+62', image: ConstantAsset.flagID),
+          id: 2,
+          name: ConstantStrings.countryNameID,
+          code: ConstantStrings.countryCodeID,
+          image: ConstantAsset.flagID),
       CountryModel(
-          id: 3, name: 'Malaysia', code: '+60', image: ConstantAsset.flagMY),
+          id: 3,
+          name: ConstantStrings.countryNameMY,
+          code: ConstantStrings.countryCodeMY,
+          image: ConstantAsset.flagMY),
       CountryModel(
-          id: 4, name: 'Singapore', code: '+65', image: ConstantAsset.flagSG),
+          id: 4,
+          name: ConstantStrings.countryNameSG,
+          code: ConstantStrings.countryCodeSG,
+          image: ConstantAsset.flagSG),
       CountryModel(
           id: 5,
-          name: 'Taiwan (台灣)',
-          code: '+886',
+          name: ConstantStrings.countryNameTW,
+          code: ConstantStrings.countryCodeTW,
           image: ConstantAsset.flagTW),
     ]);
 
     _selectedCountry = CountryModel(
-        id: 3, name: 'Malaysia', code: '+60', image: ConstantAsset.flagMY);
+        id: 3,
+        name: ConstantStrings.countryNameMY,
+        code: ConstantStrings.countryCodeMY,
+        image: ConstantAsset.flagMY);
   }
 
   List<ApplicationType> get getApplicationTypeList => _applicationTypeList;
   ApplicationType get getSelectedApplicationType => _selectedApplicationType;
 
+  List<EnterpriseType> get getEenterpriseTypeList => _enterpriseTypeList;
   EnterpriseType? get getSelectedEnterpriseType => _selectedEnterpriseType;
 
   List<CountryModel> get getCountryList => _countryList;
@@ -63,6 +80,7 @@ class LoginVM extends BaseViewModel {
 
   void setSelectedApplicationType(ApplicationType type) {
     _selectedApplicationType = type;
+    clearInput();
 
     notifyListeners();
   }
@@ -95,5 +113,13 @@ class LoginVM extends BaseViewModel {
     _phoneNumber = phoneNumber;
 
     notifyListeners();
+  }
+
+  void clearInput() {
+    _selectedEnterpriseType = null;
+
+    _enterpriseName = '';
+    _enterprisePassword = '';
+    _phoneNumber = '';
   }
 }

@@ -25,8 +25,6 @@ abstract class BaseViewModel with ChangeNotifier {
 
   bool get isBusy => _viewState == ViewState.busy;
 
-  bool get isLoading => _viewState == ViewState.loading;
-
   bool get isIdle => _viewState == ViewState.idle;
 
   bool get isEmpty => _viewState == ViewState.empty;
@@ -55,10 +53,6 @@ abstract class BaseViewModel with ChangeNotifier {
 
   void setBusy() {
     viewState = ViewState.busy;
-  }
-
-  void setLoading() {
-    viewState = ViewState.loading;
   }
 
   void setError(dynamic e, dynamic stackTrace, {String? title}) {

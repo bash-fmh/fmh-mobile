@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/constant_asset.dart';
+import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/model/country_model.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 import 'package:fmh_mobile/core/theme/google_font_syle.dart';
@@ -13,19 +14,20 @@ import 'package:fmh_mobile/ui/widget/custom_button.dart';
 class FormV2 extends StatelessWidget {
   const FormV2({
     required this.ref,
-    required this.countryList,
-    required this.selectedCountry,
-    required this.phoneNumber,
     Key? key,
   }) : super(key: key);
 
   final WidgetRef ref;
-  final List<CountryModel> countryList;
-  final CountryModel? selectedCountry;
-  final String? phoneNumber;
 
   @override
   Widget build(BuildContext context) {
+    final List<CountryModel> _countryList =
+        ref.watch(vmProvider.select((vm) => vm.getCountryList));
+    final CountryModel? _selectedCountry =
+        ref.watch(vmProvider.select((vm) => vm.getSelectedCountry));
+    final String? _phoneNumber =
+        ref.watch(vmProvider.select((vm) => vm.getPhoneNumber));
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -54,21 +56,21 @@ class FormV2 extends StatelessWidget {
                 child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   GestureDetector(
                     onTap: () {
-                      _showCountryFlagOptions(context);
+                      _showCountryFlagOptions(context, _countryList);
                     },
                     child:
                         Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 5),
                         child: Image.asset(
-                            selectedCountry?.image ?? ConstantAsset.flagMY),
+                            _selectedCountry?.image ?? ConstantAsset.flagMY),
                       ),
                       const Icon(Icons.keyboard_arrow_down,
                           color: ThemeColor.gray500),
                     ]),
                   ),
                   const SizedBox(width: 5),
-                  Text(selectedCountry?.code ?? '+60',
+                  Text(_selectedCountry?.code ?? ConstantStrings.countryCodeMY,
                       style: GoogleStyle.bodyText)
                 ]),
               ),
@@ -83,7 +85,7 @@ class FormV2 extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 14, 20, 0),
           child: CustomButton(
-            enable: phoneNumber?.isNotEmpty ?? false,
+            enable: _phoneNumber?.isNotEmpty ?? false,
             height: 44,
             enableColor: ThemeColor.sunny400,
             disableColor: ThemeColor.sunny200,
@@ -119,7 +121,8 @@ class FormV2 extends StatelessWidget {
     );
   }
 
-  Future<void> _showCountryFlagOptions(BuildContext context) {
+  Future<void> _showCountryFlagOptions(
+      BuildContext context, List<CountryModel> countryList) {
     return showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {

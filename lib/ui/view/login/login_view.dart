@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/constant_asset.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
-import 'package:fmh_mobile/core/model/country_model.dart';
+import 'package:fmh_mobile/core/helper/string_helper.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 import 'package:fmh_mobile/core/theme/google_font_syle.dart';
 import 'package:fmh_mobile/core/theme/theme_color.dart';
@@ -12,16 +12,9 @@ import 'package:fmh_mobile/ui/view/login/form_enterprise.dart';
 import 'package:fmh_mobile/ui/view/login/form_legacy.dart';
 import 'package:fmh_mobile/ui/view/login/form_v2.dart';
 
-class LoginView extends ConsumerStatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
-
+class LoginView extends ConsumerWidget {
   @override
-  _LoginViewState createState() => _LoginViewState();
-}
-
-class _LoginViewState extends ConsumerState<LoginView> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return BaseView(
         onInitReady: () => ref.read<LoginVM>(vmProvider).init(),
         builder: (context) {
@@ -29,32 +22,14 @@ class _LoginViewState extends ConsumerState<LoginView> {
             return SafeArea(
               child: Scaffold(
                 backgroundColor: ThemeColor.white,
-                body: SingleChildScrollView(child: _getBody()),
+                body: SingleChildScrollView(child: _getBody(context, ref)),
               ),
             );
           });
         });
   }
 
-  Widget _getBody() {
-    final bool _isLoading = ref.watch(vmProvider.select((vm) => vm.isLoading));
-    final List<ApplicationType> _applicationTypeList =
-        ref.watch(vmProvider.select((vm) => vm.getApplicationTypeList));
-    final ApplicationType _selectedApplicationType =
-        ref.watch(vmProvider.select((vm) => vm.getSelectedApplicationType));
-    final EnterpriseType? _selectedEnterpriseType =
-        ref.watch(vmProvider.select((vm) => vm.getSelectedEnterpriseType));
-    final List<CountryModel> _countryList =
-        ref.watch(vmProvider.select((vm) => vm.getCountryList));
-    final CountryModel? _selectedCountry =
-        ref.watch(vmProvider.select((vm) => vm.getSelectedCountry));
-    final String? _enterpriseName =
-        ref.watch(vmProvider.select((vm) => vm.getEnterpriseName));
-    final String? _enterprisePassword =
-        ref.watch(vmProvider.select((vm) => vm.getEnterprisePassword));
-    final String? _phoneNumber =
-        ref.watch(vmProvider.select((vm) => vm.getPhoneNumber));
-
+  Widget _getBody(BuildContext context, WidgetRef ref) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -75,78 +50,72 @@ class _LoginViewState extends ConsumerState<LoginView> {
             child: Image.asset(ConstantAsset.fmhLoginImage),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  if (_isLoading) {
-                    return;
-                  }
-
-                  _showApplicationTypeOptions(_applicationTypeList);
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                        color: ThemeColor.gray400,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(getApplicationTypeString(_selectedApplicationType)),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: Image.asset(ConstantAsset.chevronDown,
-                            height: 12, width: 12),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              if (_selectedApplicationType == ApplicationType.enterprise)
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 2.5),
-                      child: _enterpriseOption(
-                          _selectedEnterpriseType, 'kfc', _isLoading),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 2.5, right: 10),
-                      child: _enterpriseOption(
-                          _selectedEnterpriseType, 'ph', _isLoading),
-                    ),
-                  ],
-                ),
-            ],
-          ),
-        ),
-        if (_selectedApplicationType == ApplicationType.enterprise)
-          FormEnterprise(
-            ref: ref,
-            isEnable: _selectedEnterpriseType != null,
-            enterpriseName: _enterpriseName,
-            enterprisePassword: _enterprisePassword,
-            isLoading: _isLoading,
-          ),
-        if (_selectedApplicationType == ApplicationType.legacy) FormLegacy(),
-        if (_selectedApplicationType == ApplicationType.v2)
-          FormV2(
-            ref: ref,
-            countryList: _countryList,
-            selectedCountry: _selectedCountry,
-            phoneNumber: _phoneNumber,
-          ),
+        _getForms(context, ref),
       ],
     );
   }
 
+  Column _getForms(BuildContext context, WidgetRef ref) {
+    final bool _isLoading = ref.watch(vmProvider.select((vm) => vm.isBusy));
+    final ApplicationType _selectedApplicationType =
+        ref.watch(vmProvider.select((vm) => vm.getSelectedApplicationType));
+
+    final List<Widget> widgets = [];
+    widgets.add(Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          GestureDetector(
+            onTap: () {
+              if (!_isLoading) {
+                _showApplicationTypeOptions(context, ref);
+              }
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              decoration: BoxDecoration(
+                  border: Border.all(
+                    color: ThemeColor.gray400,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(5))),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(_selectedApplicationType.getString.toTitleCase),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 5),
+                    child: Image.asset(ConstantAsset.chevronDown,
+                        height: 12, width: 12),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Row(children: _enterpriseOptions(ref, _isLoading)),
+        ],
+      ),
+    ));
+
+    switch (_selectedApplicationType) {
+      case ApplicationType.enterprise:
+        widgets.add(FormEnterprise(ref: ref));
+        break;
+      case ApplicationType.v2:
+        widgets.add(FormV2(ref: ref));
+        break;
+      default:
+        widgets.add(FormLegacy());
+        break;
+    }
+
+    return Column(children: widgets);
+  }
+
   Future<void> _showApplicationTypeOptions(
-      List<ApplicationType> applicationTypeList) {
+      BuildContext context, WidgetRef ref) {
+    final List<ApplicationType> _applicationTypeList =
+        ref.watch(vmProvider.select((vm) => vm.getApplicationTypeList));
+
     return showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
@@ -155,16 +124,16 @@ class _LoginViewState extends ConsumerState<LoginView> {
             color: ThemeColor.white,
             child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: applicationTypeList.length,
+                itemCount: _applicationTypeList.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     onTap: () {
                       ref.read<LoginVM>(vmProvider).setSelectedApplicationType(
-                          applicationTypeList[index]);
+                          _applicationTypeList[index]);
                       Navigator.of(context).pop();
                     },
-                    title: Text(
-                        getApplicationTypeString(applicationTypeList[index])),
+                    title:
+                        Text(_applicationTypeList[index].getString.toTitleCase),
                   );
                 }),
           ),
@@ -173,64 +142,50 @@ class _LoginViewState extends ConsumerState<LoginView> {
     );
   }
 
-  Widget _enterpriseOption(
-      EnterpriseType? enterpriseType, String option, bool isLoading) {
-    bool _isActive = false;
-    String text = getLocalization.kfc;
-    if (enterpriseType != null && option == 'kfc') {
-      _isActive = enterpriseType == EnterpriseType.kfc;
-    } else if (enterpriseType != null) {
-      _isActive = enterpriseType == EnterpriseType.ph;
-      text = getLocalization.ph;
+  List<Widget> _enterpriseOptions(WidgetRef ref, bool isLoading) {
+    final ApplicationType _selectedApplicationType =
+        ref.watch(vmProvider.select((vm) => vm.getSelectedApplicationType));
+    final List<EnterpriseType> _enterpriseTypeList =
+        ref.watch(vmProvider.select((vm) => vm.getEenterpriseTypeList));
+    final EnterpriseType? _selectedEnterpriseType =
+        ref.watch(vmProvider.select((vm) => vm.getSelectedEnterpriseType));
+
+    if (_selectedApplicationType != ApplicationType.enterprise) {
+      return [];
     }
 
-    if (option != 'kfc') {
-      text = getLocalization.ph;
+    final List<Widget> widgets = [];
+    for (var e in _enterpriseTypeList) {
+      final bool _isActive = e == _selectedEnterpriseType;
+      final String _text = e.getString.toUpperCase();
+      final bool _isFirstData = e == _enterpriseTypeList.first;
+
+      widgets.add(Padding(
+        padding: _isFirstData
+            ? const EdgeInsets.only(left: 10, right: 2.5)
+            : const EdgeInsets.only(left: 2.5, right: 10),
+        child: GestureDetector(
+          onTap: () {
+            if (isLoading) {
+              return;
+            }
+
+            ref.read<LoginVM>(vmProvider).setSelectedEnterpriseType(e);
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            decoration: BoxDecoration(
+                color: _isActive ? ThemeColor.sunny400 : ThemeColor.white,
+                border: Border.all(
+                  color: _isActive ? ThemeColor.white : ThemeColor.sunny400,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: Text(_text),
+          ),
+        ),
+      ));
     }
 
-    return GestureDetector(
-      onTap: () {
-        if (isLoading) {
-          return;
-        }
-
-        if (option == 'kfc') {
-          ref
-              .read<LoginVM>(vmProvider)
-              .setSelectedEnterpriseType(EnterpriseType.kfc);
-        } else {
-          ref
-              .read<LoginVM>(vmProvider)
-              .setSelectedEnterpriseType(EnterpriseType.ph);
-        }
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        decoration: BoxDecoration(
-            color: _isActive ? ThemeColor.sunny400 : ThemeColor.white,
-            border: Border.all(
-              color: _isActive ? ThemeColor.white : ThemeColor.sunny400,
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(20))),
-        child: Text(text),
-      ),
-    );
-  }
-
-  String getApplicationTypeString(ApplicationType type) {
-    String result = '';
-    switch (type) {
-      case ApplicationType.legacy:
-        result = 'Legacy';
-        break;
-      case ApplicationType.v2:
-        result = 'V2';
-        break;
-      default:
-        result = 'Enterprise';
-        break;
-    }
-
-    return result;
+    return widgets;
   }
 }
