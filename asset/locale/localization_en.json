@@ -13,5 +13,7 @@
   "test_arg": "Hello {},\nThe data are:\nToday: {}\nTomorrow: {}\nNext week: {}",
   "orders": "Orders",
   "suppliers": "Suppliers",
-  "products": "Products"
+  "products": "Products",
+  "pending_to_receive": "Pending to Receive"
+
 }

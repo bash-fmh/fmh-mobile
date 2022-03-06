@@ -47,6 +47,8 @@ linter:
     - slash_for_doc_comments
     - unawaited_futures
     - unnecessary_const
+    - prefer_const_constructors
+    - avoid_redundant_argument_values
  
  
    
