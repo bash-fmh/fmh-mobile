@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/theme/theme_color.dart';
 import 'package:fmh_mobile/core/viewmodel/enterprise/landing_vm.dart';
 import 'package:fmh_mobile/ui/view/enterprise/apps/apps_view.dart';
-import 'package:fmh_mobile/ui/view/enterprise/dashboard/home_view.dart';
+import 'package:fmh_mobile/ui/view/enterprise/dashboard/dashboard_view.dart';
 import 'package:fmh_mobile/ui/view/enterprise/notification/notification_view.dart';
 
 import '../../base_view.dart';
@@ -35,7 +35,7 @@ class _LandingViewState extends ConsumerState<LandingView>
         physics: const NeverScrollableScrollPhysics(),
         controller: ref.read<LandingVM>(vmLandingProvider).tabController,
         children: <Widget>[
-          HomeView(),
+          DashboardView(),
           AppsView(),
           NotificationView(),
         ],

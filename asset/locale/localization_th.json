@@ -5,6 +5,7 @@
     "mtd_variance": "MTD ความแปรปรวน",
     "mtd_discard": "MTD ทิ้ง",
     "mtd_sales": "MTD ฝ่ายขาย",
+    "mtd_sales_vs": "{} vs MTD Sales",
     "cost": "ค่าใช้จ่าย",
     "qty": "จำนวน",
     "top_discard": "Top 10 Discard Items",

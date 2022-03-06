@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:fmh_mobile/core/constant/constant_asset.dart';
 import 'package:fmh_mobile/core/theme/google_font_syle.dart';
@@ -9,8 +12,7 @@ class HeaderContent extends StatelessWidget {
     return Container(
       color: ThemeColor.sunny500,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(
-            15, MediaQuery.of(context).viewPadding.top, 15, 10),
+        padding: EdgeInsets.fromLTRB(15, Platform.isIOS ? 48 : 24, 15, 10),
         child: _getBody(),
       ),
     );

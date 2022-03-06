@@ -58,12 +58,11 @@ class NavigationBar extends StatelessWidget {
 
             return Consumer(
               builder: (context, ref, child) {
-                final NavButtonType selectedNav =
-                    ref.watch(vmLandingProvider.select((vm) => vm.selectedNavButton));
-                final bool isNavSelected =
-                    currentNav.navButtonType == selectedNav;
+                final NavButtonType selectedNav = ref.watch(
+                    vmLandingProvider.select((vm) => vm.selectedNavButton));
 
-                return _getItemContent(viewModel, currentNav, isNavSelected);
+                return _getItemContent(viewModel, currentNav,
+                    currentNav.navButtonType == selectedNav);
               },
             );
           },
