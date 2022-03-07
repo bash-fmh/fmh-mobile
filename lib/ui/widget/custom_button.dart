@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fmh_mobile/core/theme/google_font_syle.dart';
 import 'package:fmh_mobile/core/theme/theme_color.dart';
+import 'package:fmh_mobile/ui/widget/loading_screen.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -46,7 +47,7 @@ class CustomButton extends StatelessWidget {
       style: elevatedButtonStyle,
       onPressed: enable && !isLoading ? (callback ?? () {}) : () {},
       child: isLoading
-          ? _loading()
+          ? LoadingScreen()
           : Text(text,
               style: _isAvailable()
                   ? elevatedButtonTextStyle
@@ -56,12 +57,5 @@ class CustomButton extends StatelessWidget {
 
   bool _isAvailable() {
     return enable && !isLoading;
-  }
-
-  Widget _loading() {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: CircularProgressIndicator(),
-    );
   }
 }

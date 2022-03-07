@@ -3,6 +3,7 @@ import 'package:fmh_mobile/core/model/country_model.dart';
 import 'package:fmh_mobile/core/model/product.dart';
 import 'package:fmh_mobile/core/model/upload_form_data.dart';
 import 'package:fmh_mobile/core/service/locator/locator.dart';
+
 import 'base_api.dart';
 
 abstract class NetworkService {
@@ -20,7 +21,6 @@ class NetworkServiceImpl implements NetworkService {
   Future<CountryModelResponse> getCountryList() async {
     final Map<String, dynamic> response = await _api.get(
       ConstantUrl.countryList,
-      authorizedHeader: false,
     );
     return CountryModelResponse.fromJson(response);
   }
@@ -29,7 +29,6 @@ class NetworkServiceImpl implements NetworkService {
   Future<MealModelResponse> getMealList({required String country}) async {
     final Map<String, dynamic> response = await _api.get(
       ConstantUrl.mealList(country),
-      authorizedHeader: false,
     );
     return MealModelResponse.fromJson(response);
   }

@@ -19,11 +19,9 @@ class LoginView extends ConsumerWidget {
         onInitReady: () => ref.read<LoginVM>(vmProvider).init(),
         builder: (context) {
           return Consumer(builder: (context, ref, child) {
-            return SafeArea(
-              child: Scaffold(
-                backgroundColor: ThemeColor.white,
-                body: SingleChildScrollView(child: _getBody(context, ref)),
-              ),
+            return Scaffold(
+              backgroundColor: ThemeColor.white,
+              body: SingleChildScrollView(child: _getBody(context, ref)),
             );
           });
         });
@@ -31,7 +29,7 @@ class LoginView extends ConsumerWidget {
 
   Widget _getBody(BuildContext context, WidgetRef ref) {
     return GestureDetector(
-      onTap: () => _hideKeyboard(context),
+      onTap: () => ref.read<LoginVM>(vmProvider).hideKeyboard(context),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -60,7 +58,7 @@ class LoginView extends ConsumerWidget {
 
   Column _getForms(BuildContext context, WidgetRef ref) {
     final bool _isLoading = ref.watch(vmProvider.select((vm) => vm.isBusy));
-    final ApplicationType _selectedApplicationType =
+    final ApplicationType? _selectedApplicationType =
         ref.watch(vmProvider.select((vm) => vm.getSelectedApplicationType));
 
     final List<Widget> widgets = [];
@@ -146,7 +144,7 @@ class LoginView extends ConsumerWidget {
   }
 
   List<Widget> _enterpriseOptions(WidgetRef ref, bool isLoading) {
-    final ApplicationType _selectedApplicationType =
+    final ApplicationType? _selectedApplicationType =
         ref.watch(vmProvider.select((vm) => vm.getSelectedApplicationType));
     final List<EnterpriseType> _enterpriseTypeList =
         ref.watch(vmProvider.select((vm) => vm.getEenterpriseTypeList));
@@ -190,12 +188,5 @@ class LoginView extends ConsumerWidget {
     }
 
     return widgets;
-  }
-
-  void _hideKeyboard(BuildContext context) {
-    final FocusScopeNode currentFocus = FocusScope.of(context);
-    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
-      FocusManager.instance.primaryFocus?.unfocus();
-    }
   }
 }

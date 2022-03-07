@@ -24,7 +24,7 @@ Project started in Feb 28, 2022.
 
 ## Target OS version
 
-- Android: <span dir="">21</span> - <span dir="">30</span>
+- Android: <span dir="">21</span> - <span dir="">31</span>
 - iOS: <span dir="">12.1</span>
 
 
@@ -38,6 +38,7 @@ Project started in Feb 28, 2022.
 - **package_info:** for querying information about an application package.
 - **sentry_flutter:** Error Tracking
 - **shared_preferences**: Wraps platform-specific persistent storage for simple data.
+- **device_preview**: Approximate how your Flutter app looks and performs on another device.
 
 ## <span dir="">Features</span>
 
@@ -68,6 +69,14 @@ Project started in Feb 28, 2022.
       - Invalid username or password
     - If all information are correct then user will be able to log in successfully
     - Once user is logged in, the app retains login status so when user kills and opens app again, user will remain logged in
+  - **Landing Screen:**
+    - User should be able to choose between dashboard, apps and notification
+    - Dashboard Screen:
+        - Should be able to see the performance graph of MTD discard and MTD Variance
+        - Should be able to choose between MTD variance and MTD discard
+        - Should able to see top 10 of discard and variance items
+        - Should be able to swap between cost and qty of each MTD variance and discard 
+   
 
 ## App Icon & Splash Screen
 For splash screen, this app have android, ios and flutter splash screen.

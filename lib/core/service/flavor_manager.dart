@@ -5,7 +5,7 @@ class FlavorSettings {
     required this.baseUrl,
   });
 
-  final Map<DeployApplicationType, String> baseUrl;
+  final Map<ApplicationType, String> baseUrl;
 }
 
 class FlavorManager {

@@ -15,6 +15,7 @@ abstract class PreferencesService {
   Future<bool> saveLastCountryLoggedIn({required String countryCode});
   Future<String?> getLastCountryLoggedIn();
   Future<DeployCountry> getCountrySelected();
+  Future<void> remove({required String key});
 }
 
 class PreferencesServiceImpl implements PreferencesService {
@@ -93,5 +94,11 @@ class PreferencesServiceImpl implements PreferencesService {
     return DeployCountry.values.firstWhere(
         (element) => describeEnum(element) == selectedCountry,
         orElse: () => DeployCountry.id);
+  }
+
+  @override
+  Future<void> remove({required String key}) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove(key);
   }
 }

@@ -16,5 +16,20 @@
     "terms_of_use_statement": "By clicking continue, you are agreeing to our",
     "terms_of_use": "Terms of use",
     "and": "and",
-    "privacy_policy": "Privacy policy"
+    "privacy_policy": "Privacy policy",
+    "dashboard": "Dashboard",
+    "apps": "Apps",
+    "notification": "Notification",
+    "mtd_variance": "MTD Variance",
+    "mtd_discard": "MTD Discard",
+    "mtd_sales": "{}{}MTD Sales",
+    "cost": "Cost",
+    "qty": "Qty",
+    "top_discard": "Top 10 Discard Items",
+    "top_variance": "Top 10 Variance Items",
+    "orders": "Orders",
+    "suppliers": "Suppliers",
+    "products": "Products",
+    "vs": "vs"
+
 }

@@ -69,4 +69,6 @@ class ThemeColor {
   // Other colors
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color floralWhite = Color(0xFFFFFCF8);
+  static const Color eliteBlue = Color(0xFF18274B);
 }

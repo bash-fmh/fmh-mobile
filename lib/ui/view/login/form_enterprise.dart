@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
-import 'package:fmh_mobile/core/service/navigation/nav_router.dart';
-import 'package:fmh_mobile/core/service/navigation/navigation_service.dart';
 import 'package:fmh_mobile/core/theme/theme_color.dart';
 import 'package:fmh_mobile/core/viewmodel/login_vm.dart';
 import 'package:fmh_mobile/ui/widget/custom_button.dart';
@@ -69,7 +67,7 @@ class FormEnterprise extends StatelessWidget {
             disableColor: ThemeColor.sunny200,
             disableTextColor: ThemeColor.brass200,
             text: getLocalization.continueText.toUpperCase(),
-            callback: _loginCallback,
+            callback: ref.read<LoginVM>(vmProvider).loginCallback,
           ),
         ),
       ],
@@ -86,12 +84,5 @@ class FormEnterprise extends StatelessWidget {
     return isEnable &&
         (_enterpriseName?.isNotEmpty ?? false) &&
         (_enterprisePassword?.isNotEmpty ?? false);
-  }
-
-  void _loginCallback() {
-    ref.read<LoginVM>(vmProvider).setBusy();
-    Future.delayed(Duration(seconds: 5), () {
-      navigationService.pushAndRemoveUntil(NavRouter.dashboardRouter);
-    });
   }
 }

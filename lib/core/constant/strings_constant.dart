@@ -19,4 +19,6 @@ class ConstantStrings {
   static const String countryCodeMY = '+60';
   static const String countryCodeSG = '+65';
   static const String countryCodeTW = '+886';
+  static const String appType = 'app_type';
+  static const String enterpriseType = 'enterprise_type';
 }
