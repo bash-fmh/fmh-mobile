@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/constant_asset.dart';
 import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 import 'package:fmh_mobile/core/theme/google_font_syle.dart';
 import 'package:fmh_mobile/core/theme/theme_color.dart';
+import 'package:fmh_mobile/core/viewmodel/enterprise/apps_vm.dart';
 import 'package:fmh_mobile/ui/view/enterprise/apps/item_group_list.dart';
 
 class DetailContent extends StatelessWidget {
@@ -17,9 +19,9 @@ class DetailContent extends StatelessWidget {
   }
 }
 
-class _reminderCard extends StatelessWidget {
+class _reminderCard extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final BorderRadius radius = BorderRadius.circular(10);
 
     return Padding(
@@ -28,17 +30,17 @@ class _reminderCard extends StatelessWidget {
         decoration:
             BoxDecoration(color: ThemeColor.salmon400, borderRadius: radius),
         width: double.infinity,
-        child: _getBody(radius),
+        child: _getBody(radius, ref),
       ),
     );
   }
 
-  Material _getBody(BorderRadius radius) {
+  Material _getBody(BorderRadius radius, WidgetRef ref) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         borderRadius: radius,
-        onTap: () {},
+        onTap: ref.read(vmAppsProvider).pendingToReceived,
         child: _getContent(),
       ),
     );

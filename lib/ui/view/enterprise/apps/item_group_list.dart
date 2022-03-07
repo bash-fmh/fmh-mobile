@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fmh_mobile/core/constant/constant_asset.dart';
 import 'package:fmh_mobile/core/extension/string_ext.dart';
+import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 import 'package:fmh_mobile/core/theme/google_font_syle.dart';
 import 'package:fmh_mobile/core/theme/theme_color.dart';
+import 'package:fmh_mobile/core/viewmodel/enterprise/apps_vm.dart';
 
 class ItemGroupList extends StatelessWidget {
   @override
@@ -17,83 +20,83 @@ class ItemGroupList extends StatelessWidget {
   }
 }
 
-class _RequestAndOrders extends StatelessWidget {
+class _RequestAndOrders extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return _CustomCard(
-      title: 'Request & Order',
+      title: getLocalization.requestAndOrder,
       itemList: <Widget>[
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'Place Order',
-          itemOnTap: () {},
+          title: getLocalization.placeOrder,
+          itemOnTap: ref.read(vmAppsProvider).placeOrder,
         ),
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'Receiving',
-          itemOnTap: () {},
+          title: getLocalization.receiving,
+          itemOnTap: ref.read(vmAppsProvider).receiving,
         ),
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'Credit Note',
-          itemOnTap: () {},
+          title: getLocalization.creditNote,
+          itemOnTap: ref.read(vmAppsProvider).creditNote,
         ),
       ],
     );
   }
 }
 
-class _StockManagement extends StatelessWidget {
+class _StockManagement extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return _CustomCard(
-      title: 'Stock Management',
+      title: getLocalization.stockManagement,
       itemList: <Widget>[
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'Stock Count',
-          itemOnTap: () {},
+          title: getLocalization.stockCount,
+          itemOnTap: ref.read(vmAppsProvider).stockCount,
         ),
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'Discard',
-          itemOnTap: () {},
+          title: getLocalization.discard,
+          itemOnTap: ref.read(vmAppsProvider).discard,
         ),
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'Transfer',
-          itemOnTap: () {},
+          title: getLocalization.transfer,
+          itemOnTap: ref.read(vmAppsProvider).transfer,
         ),
       ],
     );
   }
 }
 
-class _Others extends StatelessWidget {
+class _Others extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return _CustomCard(
-      title: 'Others',
+      title: getLocalization.others,
       itemList: <Widget>[
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'Oil Control',
-          itemOnTap: () {},
+          title: getLocalization.oilControl,
+          itemOnTap: ref.read(vmAppsProvider).oilControl,
         ),
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'S&D Cost',
-          itemOnTap: () {},
+          title: getLocalization.sAndDCost,
+          itemOnTap: ref.read(vmAppsProvider).sdCost,
         ),
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'PAR Variant',
-          itemOnTap: () {},
+          title: getLocalization.parVariant,
+          itemOnTap: ref.read(vmAppsProvider).parVariant,
         ),
         _CustomItemCard(
           iconName: ConstantAsset.mainLogoIcon,
-          title: 'Settings',
-          itemOnTap: () {},
+          title: getLocalization.settings,
+          itemOnTap: ref.read(vmAppsProvider).settings,
         )
       ],
     );

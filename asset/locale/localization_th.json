@@ -14,5 +14,18 @@
     "orders": "คำสั่ง",
     "suppliers": "ซัพพลายเออร์",
     "products": "ผลิตภัณฑ์",
-    "pending_to_receive": "Pending to Receive"
+    "pending_to_receive": "Pending to Receive",
+    "request_and_Order": "Request & Order",
+    "place_order": "Place Order",
+    "receiving": "Receiving",
+    "credit_note": "Credit Note",
+    "stock_management": "Stock Management",
+    "stock_count": "Stock Count",
+    "discard": "Discard",
+    "transfer": "Transfer",
+    "others": "Others",
+    "oil_control": "Oil Control",
+    "s_and_d_cost": "S&D Cost",
+    "par_variant": "PAR Variant",
+    "settings": "Settings"
 }
