@@ -7,12 +7,9 @@ import 'package:fmh_mobile/core/theme/theme_color.dart';
 class HeaderContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ThemeColor.sunny500,
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(15, 8, 15, 10),
-        child: _getBody(context),
-      ),
+    return Padding(
+      padding: EdgeInsets.fromLTRB(15, 8, 15, 10),
+      child: _getBody(context),
     );
   }
 

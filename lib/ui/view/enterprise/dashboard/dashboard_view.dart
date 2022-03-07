@@ -43,17 +43,17 @@ class _DashboardViewState extends ConsumerState<DashboardView>
     }
   }
 
-  Column _getBody() {
-    return Column(
-      children: <Widget>[
-        HeaderContent(),
-        Expanded(
-          child: Container(
-            color: ThemeColor.sunny500,
+  Widget _getBody() {
+    return Container(
+      color: ThemeColor.sunny500,
+      child: Column(
+        children: <Widget>[
+          HeaderContent(),
+          Expanded(
             child: DetailContent(),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 
