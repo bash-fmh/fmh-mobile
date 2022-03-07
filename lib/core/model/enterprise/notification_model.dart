@@ -1,21 +1,21 @@
 class NotificationModelResponse{
   const NotificationModelResponse({
-    required this.notificationList
+    required this.data
   });
 
-  final List<Notification> notificationList;
+  final List<NotificationDetail> data;
 
   NotificationModelResponse.fromJson(Map<String, dynamic>? json)
-      : notificationList = json?['data'] == null
-            ? <Notification>[]
+      : data = json?['data'] == null
+            ? <NotificationDetail>[]
             : (json?['data'] as List<dynamic>)
-                .map<Notification>((dynamic e) =>
-                    Notification.fromJson(e as Map<String, dynamic>))
+                .map<NotificationDetail>((dynamic e) =>
+                    NotificationDetail.fromJson(e as Map<String, dynamic>))
                 .toList();
 }
 
-class Notification {
-  const Notification({
+class NotificationDetail {
+  const NotificationDetail({
     required this.type,
     required this.title,
     required this.content,
@@ -29,7 +29,7 @@ class Notification {
   final String date;
   final String time;
 
-  Notification.fromJson(Map<String, dynamic>? json)
+  NotificationDetail.fromJson(Map<String, dynamic>? json)
       : type = (json?['type'] as String?) ?? '',
         title = (json?['title'] as String?) ?? '',
         content = (json?['content'] as String?) ?? '',
