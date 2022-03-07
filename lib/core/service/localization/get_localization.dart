@@ -17,6 +17,7 @@ class GetLocalization {
   String get topVariance => localizationService.text('top_variance');
   String get topDiscard => localizationService.text('top_discard');
   String get noInternet => localizationService.text('no_internet');
+  String get vs => localizationService.text('vs');
 
   String testArg1({required String parm1, required String parm2}) =>
       '$parm1 ${localizationService.text('no_internet')} $parm2';

@@ -10,7 +10,7 @@ class HeaderContent extends StatelessWidget {
     return Container(
       color: ThemeColor.sunny500,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(15, 0, 15, 10),
+        padding: EdgeInsets.fromLTRB(15, 8, 15, 10),
         child: _getBody(context),
       ),
     );

@@ -40,7 +40,9 @@ class MtdPerformance extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 10, bottom: 12),
           child: Text(
-            getLocalization.mtdSales(args: [mtdTitle, ' vs ']),
+            getLocalization.mtdSales(
+              args: [mtdTitle, ' ${getLocalization.vs} '],
+            ),
             style: GoogleStyle.bodyText.copyWith(
                 color: ThemeColor.black,
                 fontWeight: FontWeight.bold,
