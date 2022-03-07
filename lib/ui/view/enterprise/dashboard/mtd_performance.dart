@@ -13,7 +13,7 @@ class MtdPerformance extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: CustomCard(
-        _getBody(),
+        child: _getBody(),
       ),
     );
   }

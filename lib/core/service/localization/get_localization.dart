@@ -32,6 +32,11 @@ class GetLocalization {
   String get parVariant => localizationService.text('par_variant');
   String get settings => localizationService.text('settings');
   String get vs => localizationService.text('vs');
+  String get actual => localizationService.text('actual');
+  String get Expected => localizationService.text('Expected');
+  String get mtdGp => localizationService.text('mtd_gp');
+  String monthlyBudget({List<String>? args}) =>
+      localizationService.text('monthly_budget', args: args);
 
   String testArg1({required String parm1, required String parm2}) =>
       '$parm1 ${localizationService.text('no_internet')} $parm2';

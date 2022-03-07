@@ -10,11 +10,14 @@ import 'package:fmh_mobile/ui/view/enterprise/apps/item_group_list.dart';
 class DetailContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        _reminderCard(),
-        ItemGroupList(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Column(
+        children: <Widget>[
+          _reminderCard(),
+          ItemGroupList(),
+        ],
+      ),
     );
   }
 }

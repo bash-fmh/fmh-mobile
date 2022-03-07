@@ -37,14 +37,11 @@ class _AppsViewState extends ConsumerState<AppsView>
   Expanded _getContent() {
     return Expanded(
       child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            children: <Widget>[
-              HeaderContent(),
-              DetailContent(),
-            ],
-          ),
+        child: Column(
+          children: <Widget>[
+            HeaderContent(),
+            DetailContent(),
+          ],
         ),
       ),
     );

@@ -15,7 +15,7 @@ class VarianceItemList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
       child: CustomCard(
-        _getBody(),
+        child: _getBody(),
       ),
     );
   }

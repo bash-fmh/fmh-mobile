@@ -63,7 +63,7 @@ class _AppsTitle extends StatelessWidget {
   Row _getTitle() {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: [
+      children: <Widget>[
         Flexible(
           child: Padding(
             padding: const EdgeInsets.only(right: 5),
