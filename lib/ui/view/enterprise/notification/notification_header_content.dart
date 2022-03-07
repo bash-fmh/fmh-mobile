@@ -21,7 +21,7 @@ class NotificationHeaderContent extends StatelessWidget {
       children: <Widget>[
         _getContent(),
 
-        /// Reload Button
+        /// Scan Button
         Padding(
           padding: const EdgeInsets.only(left: 10),
           child: Icon(
@@ -33,6 +33,7 @@ class NotificationHeaderContent extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10),
           child: Stack(
             children: <Widget> [
+              /// Cart Button
               Icon(
                 Icons.shopping_cart,
                 color: ThemeColor.white,
