@@ -30,28 +30,31 @@ class LoginView extends ConsumerWidget {
   }
 
   Widget _getBody(BuildContext context, WidgetRef ref) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(15, 25, 15, 15),
-          child: Image.asset(ConstantAsset.fmhLoginLogo),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Text(
-            getLocalization.appQuote,
-            style: GoogleStyle.displayBold,
+    return GestureDetector(
+      onTap: () => _hideKeyboard(context),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 25, 15, 15),
+            child: Image.asset(ConstantAsset.fmhLoginLogo),
           ),
-        ),
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            child: Image.asset(ConstantAsset.fmhLoginImage),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              getLocalization.appQuote,
+              style: GoogleStyle.displayBold,
+            ),
           ),
-        ),
-        _getForms(context, ref),
-      ],
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              child: Image.asset(ConstantAsset.fmhLoginImage),
+            ),
+          ),
+          _getForms(context, ref),
+        ],
+      ),
     );
   }
 
@@ -187,5 +190,12 @@ class LoginView extends ConsumerWidget {
     }
 
     return widgets;
+  }
+
+  void _hideKeyboard(BuildContext context) {
+    final FocusScopeNode currentFocus = FocusScope.of(context);
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      FocusManager.instance.primaryFocus?.unfocus();
+    }
   }
 }
