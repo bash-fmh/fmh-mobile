@@ -4,7 +4,7 @@
   "notification": "Notification",
   "mtd_variance": "MTD Variance",
   "mtd_discard": "MTD Discard",
-  "mtd_sales": "MTD Sales",
+  "mtd_sales": "{}{}MTD Sales",
   "cost": "Cost",
   "qty": "Qty",
   "top_discard": "Top 10 Discard Items",
@@ -31,4 +31,6 @@
 
 
 
+  "products": "Products",
+  "vs": "vs"
 }

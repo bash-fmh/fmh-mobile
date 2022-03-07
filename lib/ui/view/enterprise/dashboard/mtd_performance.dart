@@ -38,9 +38,11 @@ class MtdPerformance extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10),
+          padding: const EdgeInsets.only(top: 10, bottom: 12),
           child: Text(
-            '$mtdTitle vs ${getLocalization.mtdSales}',
+            getLocalization.mtdSales(
+              args: [mtdTitle, ' ${getLocalization.vs} '],
+            ),
             style: GoogleStyle.bodyText.copyWith(
                 color: ThemeColor.black,
                 fontWeight: FontWeight.bold,
@@ -127,7 +129,12 @@ class _CustomSales extends StatelessWidget {
       },
       children: <TableRow>[
         /// Description
-        _getTableDetailContent(text1: text, text2: getLocalization.mtdSales),
+        _getTableDetailContent(
+          text1: text,
+          text2: getLocalization.mtdSales(
+            args: ['', ''],
+          ),
+        ),
 
         /// Value
         _getTableDetailContent(
@@ -145,14 +152,23 @@ class _CustomSales extends StatelessWidget {
 
     return TableRow(
       children: <Widget>[
-        Text(
-          text1,
-          textAlign: TextAlign.right,
-          style: GoogleStyle.bodyText
-              .copyWith(color: ThemeColor.blue600, fontSize: 12),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 2),
+          child: Text(
+            text1,
+            textAlign: TextAlign.right,
+            style: GoogleStyle.bodyText
+                .copyWith(color: ThemeColor.blue600, fontSize: 12),
+          ),
         ),
-        Text('/', textAlign: TextAlign.center, style: performanceStyle),
-        Text(text2, style: performanceStyle),
+        Padding(
+            padding: const EdgeInsets.only(bottom: 2),
+            child: Text('/',
+                textAlign: TextAlign.center, style: performanceStyle)),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 2),
+          child: Text(text2, style: performanceStyle),
+        ),
       ],
     );
   }

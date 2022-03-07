@@ -38,7 +38,7 @@ class VarianceItemList extends StatelessWidget {
             ref.watch(vmDashboardProvider.select((vm) => vm.mtdSelected));
 
         return Padding(
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 12),
           child: Column(
             children: <Widget>[
               _getItemTitleContent(mtdSelected),
@@ -54,7 +54,7 @@ class VarianceItemList extends StatelessWidget {
 
   Widget _getItemTitleContent(MTDType mtdSelected) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 5),
+      padding: const EdgeInsets.only(bottom: 12),
       child: Row(
         children: <Widget>[
           /// Title
@@ -233,11 +233,26 @@ class _MTDTopList extends ConsumerWidget {
 
   TableRow _getTableDetailContent(
       {required int index, required String title, required double value}) {
-    return TableRow(children: <Widget>[
-      Text('$index', style: _getTextStyle(), textAlign: TextAlign.left),
-      Text(title, style: _getTextStyle(), textAlign: TextAlign.left),
-      Text('$value', style: _getTextStyle(), textAlign: TextAlign.right),
-    ]);
+    final EdgeInsets spacingBottom = EdgeInsets.only(bottom: 10);
+
+    return TableRow(
+      children: <Widget>[
+        Padding(
+          padding: spacingBottom,
+          child:
+              Text('$index', style: _getTextStyle(), textAlign: TextAlign.left),
+        ),
+        Padding(
+          padding: spacingBottom,
+          child: Text(title, style: _getTextStyle(), textAlign: TextAlign.left),
+        ),
+        Padding(
+          padding: spacingBottom,
+          child: Text('$value',
+              style: _getTextStyle(), textAlign: TextAlign.right),
+        ),
+      ],
+    );
   }
 
   TextStyle _getTextStyle() =>

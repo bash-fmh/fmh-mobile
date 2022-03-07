@@ -9,12 +9,12 @@ import '../../base_view.dart';
 import 'detail_content.dart';
 import 'header_content.dart';
 
-class HomeView extends ConsumerStatefulWidget {
+class DashboardView extends ConsumerStatefulWidget {
   @override
-  _HomeViewState createState() => _HomeViewState();
+  _DashboardViewState createState() => _DashboardViewState();
 }
 
-class _HomeViewState extends ConsumerState<HomeView>
+class _DashboardViewState extends ConsumerState<DashboardView>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
@@ -26,14 +26,21 @@ class _HomeViewState extends ConsumerState<HomeView>
         final ViewState state =
             ref.watch(vmDashboardProvider.select((vm) => vm.viewState));
 
-        switch (state) {
-          case ViewState.busy:
-            return const LoadingScreen();
-          default:
-            return _getBody();
-        }
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: _renderWidget(state),
+        );
       },
     );
+  }
+
+  Widget _renderWidget(ViewState state) {
+    switch (state) {
+      case ViewState.busy:
+        return const LoadingScreen();
+      default:
+        return _getBody();
+    }
   }
 
   Column _getBody() {

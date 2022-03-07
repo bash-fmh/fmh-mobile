@@ -6,7 +6,8 @@ import 'package:fmh_mobile/core/service/service.dart';
 
 import '../base_viewmodel.dart';
 
-final vmDashboardProvider = ChangeNotifierProvider<DashboardVM>((ref) => DashboardVM());
+final vmDashboardProvider =
+    ChangeNotifierProvider<DashboardVM>((ref) => DashboardVM());
 
 class DashboardVM extends BaseViewModel {
   MTDType _mtdSelected = MTDType.variance;
@@ -38,16 +39,18 @@ class DashboardVM extends BaseViewModel {
     }
   }
 
-  void loadInit(){
+  void loadInit() {
     _getMTDTopList();
   }
 
-  Future<void> _getMTDTopList() async{
+  Future<void> _getMTDTopList() async {
     try {
       setBusy();
-      final MTDTopModelResponse response = await _service.getMTDList();
-      _mtdTopList = response;
-      setIdle();
+      await Future.delayed(const Duration(seconds: 2)).then((value) async {
+        final MTDTopModelResponse response = await _service.getMTDList();
+        _mtdTopList = response;
+        setIdle();
+      });
     } catch (e, s) {
       setError(e, s);
     }
