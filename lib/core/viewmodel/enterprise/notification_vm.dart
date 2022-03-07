@@ -9,11 +9,9 @@ final vmNotificationProvider =
 
 class NotificationVM extends BaseViewModel{
 
-  NotificationModelResponse? _notificationList;
-
   final Service _service = locator<ServiceImpl>();
 
-  NotificationModelResponse? get notificationList => _notificationList;
+  List<NotificationDetail> notificationList = [];
 
   void loadInit() {
     _getNotificationList();
@@ -24,8 +22,20 @@ class NotificationVM extends BaseViewModel{
       setBusy();
       await Future.delayed(const Duration(seconds: 2)).then((value) async {
         final NotificationModelResponse response = await _service.getNotificationList();
-        _notificationList = response;
+        notificationList = response.data;
         setIdle();
+      });
+    } catch (e, s) {
+      setError(e, s);
+    }
+  }
+
+  Future<void> refreshNotification() async{
+    try {
+      await Future.delayed(const Duration(seconds: 2)).then((value) async {
+        final NotificationModelResponse response = await _service.getNotificationList();
+        notificationList = response.data;
+        notifyListeners();
       });
     } catch (e, s) {
       setError(e, s);

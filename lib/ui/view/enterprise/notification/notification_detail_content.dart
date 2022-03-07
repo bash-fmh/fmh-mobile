@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fmh_mobile/core/theme/theme_color.dart';
+import 'package:fmh_mobile/ui/view/enterprise/notification/notification_list_data.dart';
 
 class NotificationDetailContent extends StatelessWidget {
   @override
@@ -25,16 +26,9 @@ class NotificationDetailContent extends StatelessWidget {
 
   Expanded _getContent() {
     return Expanded(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            children: const [
-              Text('123'),
-              Text('123')
-            ],
-          ),
-        ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: NotificationListData(),
       ),
     );
   }
