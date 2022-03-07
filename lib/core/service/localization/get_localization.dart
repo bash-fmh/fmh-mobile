@@ -10,9 +10,8 @@ class GetLocalization {
   String get notification => localizationService.text('notification');
   String get mtdVariance => localizationService.text('mtd_variance');
   String get mtdDiscard => localizationService.text('mtd_discard');
-  String get mtdSales => localizationService.text('mtd_sales');
-  String mtdSalesVs({List<String>? args}) =>
-      localizationService.text('mtd_sales_vs', args: args);
+  String mtdSales({List<String>? args}) =>
+      localizationService.text('mtd_sales', args: args);
   String get cost => localizationService.text('cost');
   String get qty => localizationService.text('qty');
   String get topVariance => localizationService.text('top_variance');
