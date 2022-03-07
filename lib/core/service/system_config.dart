@@ -13,12 +13,19 @@ class SystemConfig {
     instance._country = c;
   }
 
-  DeployApplicationType? _appType;
+  ApplicationType? _appType;
 
-  DeployApplicationType? get appType =>
-      _appType ?? DeployApplicationType.enterprise;
+  ApplicationType? get appType => _appType ?? ApplicationType.enterprise;
 
-  void setAppType(DeployApplicationType a) {
+  void setAppType(ApplicationType a) {
     instance._appType = a;
+  }
+
+  EnterpriseType? _enterpriseType;
+
+  EnterpriseType? get enterpriseType => _enterpriseType;
+
+  void setEnterpriseType(EnterpriseType? a) {
+    instance._enterpriseType = a;
   }
 }

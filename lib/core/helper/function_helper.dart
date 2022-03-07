@@ -5,4 +5,6 @@ class FunctionHelper {
 
   static bool isNeedSafeArea(BuildContext context) =>
       MediaQuery.of(context).viewPadding.top > 0;
+
+     
 }

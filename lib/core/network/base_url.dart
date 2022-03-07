@@ -6,20 +6,20 @@ import 'package:fmh_mobile/core/service/system_config.dart';
 String get baseUrl =>
     FlavorManager.instance.settings.baseUrl[SystemConfig.instance.appType]!;
 
-Map<AppEnvironment, Map<DeployApplicationType, String>> baseMapUrl = {
+Map<AppEnvironment, Map<ApplicationType, String>> baseMapUrl = {
   AppEnvironment.dev: {
-    DeployApplicationType.enterprise: Env.envBaseUrlEnterprise,
-    DeployApplicationType.legacy: Env.envBaseUrlLegacy,
-    DeployApplicationType.v2: Env.envBaseUrlV2,
+    ApplicationType.enterprise: Env.envBaseUrlEnterprise,
+    ApplicationType.legacy: Env.envBaseUrlLegacy,
+    ApplicationType.v2: Env.envBaseUrlV2,
   },
   AppEnvironment.uat: {
-    DeployApplicationType.enterprise: Env.envBaseUrlEnterprise,
-    DeployApplicationType.legacy: Env.envBaseUrlLegacy,
-    DeployApplicationType.v2: Env.envBaseUrlV2,
+    ApplicationType.enterprise: Env.envBaseUrlEnterprise,
+    ApplicationType.legacy: Env.envBaseUrlLegacy,
+    ApplicationType.v2: Env.envBaseUrlV2,
   },
   AppEnvironment.prod: {
-    DeployApplicationType.enterprise: Env.envBaseUrlEnterprise,
-    DeployApplicationType.legacy: Env.envBaseUrlLegacy,
-    DeployApplicationType.v2: Env.envBaseUrlV2,
+    ApplicationType.enterprise: Env.envBaseUrlEnterprise,
+    ApplicationType.legacy: Env.envBaseUrlLegacy,
+    ApplicationType.v2: Env.envBaseUrlV2,
   }
 };

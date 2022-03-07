@@ -1,10 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:fmh_mobile/core/constant/dummy_data.dart';
+import 'package:fmh_mobile/core/constant/enum.dart';
 import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/model/country_model.dart';
 import 'package:fmh_mobile/core/model/enterprise/mtd_top_model.dart';
 import 'package:fmh_mobile/core/model/product.dart';
 import 'package:fmh_mobile/core/network/mock_service/mock_service_json.dart';
 import 'package:fmh_mobile/core/network/network_service.dart';
+import 'package:fmh_mobile/core/service/system_config.dart';
 
 import 'locator/locator.dart';
 import 'sharedpreferences/shared_preferences.dart';
@@ -17,6 +20,11 @@ abstract class Service {
   Future<bool> setPreferredLanguage(String lang);
   Future<String?> getApplicationSavedInformation(String name);
   Future<MTDTopModelResponse> getMTDList();
+  Future<String?> getAppType();
+  Future<bool> setAppType(ApplicationType type);
+  Future<String?> getEnterpriseType();
+  Future<bool> setEnterpriseType(EnterpriseType type);
+  Future<void> clearEnterpriseType();
 }
 
 class ServiceImpl implements Service {
@@ -64,4 +72,32 @@ class ServiceImpl implements Service {
   @override
   Future<MTDTopModelResponse> getMTDList() => Future<MTDTopModelResponse>.value(
       MTDTopModelResponse.fromJson(DummyData.mtdTopList));
+
+  @override
+  Future<String?> getAppType() async =>
+      await _preferencesService.getString(key: ConstantStrings.appType);
+
+  @override
+  Future<bool> setAppType(ApplicationType type) async {
+    final bool isSet = await _preferencesService.setString(
+        key: ConstantStrings.appType, value: describeEnum(type));
+    SystemConfig.instance.setAppType(type);
+    return isSet;
+  }
+
+  @override
+  Future<String?> getEnterpriseType() async =>
+      await _preferencesService.getString(key: ConstantStrings.enterpriseType);
+
+  @override
+  Future<bool> setEnterpriseType(EnterpriseType type) async {
+    final bool isSet = await _preferencesService.setString(
+        key: ConstantStrings.enterpriseType, value: describeEnum(type));
+    SystemConfig.instance.setEnterpriseType(type);
+    return isSet;
+  }
+
+  @override
+  Future<void> clearEnterpriseType() async =>
+      await _preferencesService.remove(key: ConstantStrings.enterpriseType);
 }
