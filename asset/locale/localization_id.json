@@ -14,5 +14,6 @@
     "test_arg":"Hello {},\nThe data are:\nToday: {}\nTomorrow: {}\nNext week: {}",
     "orders": "Pesanan",
     "suppliers": "Pemasok",
-    "products": "Produk"
+    "products": "Produk",
+    "no_result": "Belum ada pemberitahuan"
 }

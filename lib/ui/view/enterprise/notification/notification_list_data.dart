@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fmh_mobile/core/constant/constant_asset.dart';
 import 'package:fmh_mobile/core/model/enterprise/notification_model.dart';
+import 'package:fmh_mobile/core/service/localization/get_localization.dart';
 import 'package:fmh_mobile/core/theme/google_font_syle.dart';
 import 'package:fmh_mobile/core/theme/theme_color.dart';
 import 'package:fmh_mobile/core/viewmodel/enterprise/notification_vm.dart';
@@ -17,23 +19,56 @@ class NotificationListData extends StatelessWidget {
 
         return RefreshIndicator(
           onRefresh: () => ref.read<NotificationVM>(vmNotificationProvider).refreshNotification(),
-          child: ListView.builder(
-            itemCount: notificationList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Column(
-                  children: [
-                    _getHeader(notificationList, index),
-                    __getContent(notificationList, index)
-                  ],
-                ),
-              );
-            }
-          ),
-        );
+          child: _getNotificationList(ref, notificationList));
       }
     );
+  }
+
+  Widget _getNotificationList(WidgetRef ref, List<NotificationDetail> notificationList) {
+    if(notificationList.isNotEmpty){
+      return _getNotificationNotEmpty(notificationList);
+    }else{
+       return _getNotificationIsEmpty();
+    }
+  }
+
+  ListView _getNotificationIsEmpty() {
+    return ListView(
+      children: [
+        Column(
+         children: [
+           Image.asset(
+             ConstantAsset.emptyNotification
+           ),
+           Text(
+             getLocalization.noResult,
+             textAlign: TextAlign.center,
+             style: GoogleStyle.bodyText.copyWith(
+               fontSize: 30,
+               color: ThemeColor.sunny500
+            ),
+           )
+         ],
+       )
+      ]
+    );
+  }
+
+  ListView _getNotificationNotEmpty(List<NotificationDetail> notificationList) {
+    return ListView.builder(
+        itemCount: notificationList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Column(
+              children: [
+                _getHeader(notificationList, index),
+                __getContent(notificationList, index)
+              ],
+            ),
+          );
+        }
+      );
   }
 
   Row _getHeader(List<NotificationDetail> notificationList, int index) {

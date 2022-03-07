@@ -19,4 +19,5 @@ class ConstantAsset {
   static const String refresh = '${_imagePath}refresh.png';
   static const String dashboardEnterprise =
       '${_imagePath}dashboard_enterprise.png';
+  static const String emptyNotification = '${_imagePath}empty_result.png';
 }

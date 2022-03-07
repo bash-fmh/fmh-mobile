@@ -24,6 +24,8 @@ class GetLocalization {
 
   String testArg2({List<String>? args}) =>
       localizationService.text('test_arg', args: args);
+  
+  String get noResult => localizationService.text('no_result');
 }
 
 GetLocalization getLocalization = GetLocalization();
