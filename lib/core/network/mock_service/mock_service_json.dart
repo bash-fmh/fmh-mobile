@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:fmh_mobile/core/model/country_model.dart';
+import 'package:fmh_mobile/core/model/enterprise/notification_model.dart';
 import 'package:fmh_mobile/core/network/mock_service/json_data.dart';
 
 class MockJsonProvider {
@@ -12,5 +13,10 @@ class MockJsonProvider {
 
   Future<String> getAuthMockJson() {
     return Future.delayed(duration, () => mock_auth_json);
+  }
+
+  Future<NotificationModelResponse> getNotificationMockJson() {
+    return Future.delayed(duration,
+        () => NotificationModelResponse.fromJson(jsonDecode(mock_notification_json)));
   }
 }

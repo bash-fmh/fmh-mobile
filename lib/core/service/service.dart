@@ -2,6 +2,7 @@ import 'package:fmh_mobile/core/constant/dummy_data.dart';
 import 'package:fmh_mobile/core/constant/strings_constant.dart';
 import 'package:fmh_mobile/core/model/country_model.dart';
 import 'package:fmh_mobile/core/model/enterprise/mtd_top_model.dart';
+import 'package:fmh_mobile/core/model/enterprise/notification_model.dart';
 import 'package:fmh_mobile/core/model/product.dart';
 import 'package:fmh_mobile/core/network/mock_service/mock_service_json.dart';
 import 'package:fmh_mobile/core/network/network_service.dart';
@@ -17,6 +18,7 @@ abstract class Service {
   Future<bool> setPreferredLanguage(String lang);
   Future<String?> getApplicationSavedInformation(String name);
   Future<MTDTopModelResponse> getMTDList();
+  Future<NotificationModelResponse> getNotificationList();
 }
 
 class ServiceImpl implements Service {
@@ -64,4 +66,8 @@ class ServiceImpl implements Service {
   @override
   Future<MTDTopModelResponse> getMTDList() => Future<MTDTopModelResponse>.value(
       MTDTopModelResponse.fromJson(DummyData.mtdTopList));
+
+  @override
+  Future<NotificationModelResponse> getNotificationList() async => 
+    await _mockJsonProvider.getNotificationMockJson();
 }
