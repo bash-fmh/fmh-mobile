@@ -15,9 +15,9 @@ enum AppEnvironment {
   prod,
 }
 enum NavButtonType {
-  home,
-  search,
-  profile,
+  dashboard,
+  notification,
+  apps,
 }
 enum ButtonStatus {
   active,
@@ -32,4 +32,12 @@ enum DeployApplicationType {
   enterprise,
   legacy,
   v2,
+}
+enum MTDType {
+  variance,
+  discard,
+}
+enum QtyVariance {
+  cost,
+  qty,
 }

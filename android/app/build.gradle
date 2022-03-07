@@ -27,7 +27,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 def dartEnvironmentVariables = [
         ENVDEFINE_GOOGLE_MAP_API_KEY: null
-];
+]
 
 android {
     compileSdkVersion 31

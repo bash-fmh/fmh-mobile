@@ -1,7 +1,18 @@
 {
-    "home": "Home",
-    "search": "Search",
-    "profile": "Profile",
-    "no_internet":"No internet Connection!! Please connect to internet and try again",
-    "test_arg":"Hello {},\nThe data are:\nToday: {}\nTomorrow: {}\nNext week: {}"
+  "dashboard": "Dashboard",
+  "apps": "Apps",
+  "notification": "Notification",
+  "mtd_variance": "MTD Variance",
+  "mtd_discard": "MTD Discard",
+  "mtd_sales": "{}{}MTD Sales",
+  "cost": "Cost",
+  "qty": "Qty",
+  "top_discard": "Top 10 Discard Items",
+  "top_variance": "Top 10 Variance Items",
+  "no_internet": "No internet Connection!! Please connect to internet and try again",
+  "test_arg": "Hello {},\nThe data are:\nToday: {}\nTomorrow: {}\nNext week: {}",
+  "orders": "Orders",
+  "suppliers": "Suppliers",
+  "products": "Products",
+  "vs": "vs"
 }

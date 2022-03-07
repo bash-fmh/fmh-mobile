@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fmh_mobile/ui/view/dashboard/dasboard_view.dart';
+import 'package:fmh_mobile/ui/view/enterprise/landing/landing_view.dart';
 import 'package:fmh_mobile/ui/view/splash/splash_view.dart';
 
 class NavRouter {
@@ -17,7 +17,7 @@ class NavRouter {
       case initialRoute:
         return _pageRoute(SplashView());
       case dashboardRouter:
-        return _pageRoute(DashboardView());
+        return _pageRoute(LandingView());
 
       default:
         return MaterialPageRoute(
