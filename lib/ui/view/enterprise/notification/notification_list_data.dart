@@ -65,71 +65,63 @@ class NotificationListData extends StatelessWidget {
   }
 
   ListView _getNotificationNotEmpty(List<NotificationDetail> notificationList) {
-    return ListView.builder(
+    return ListView.separated(
         itemCount: notificationList.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _getHeader(notificationList, index),
-                __getContent(notificationList, index)
+                _getNotificationDateTime(notificationList, index),
+                _getContent(notificationList, index)
               ],
             ),
           );
-        }
+        },
+        separatorBuilder: (context, index) {
+          return Divider(
+            height: 5,
+            color: Color(0xFFDDDDDD),
+          );
+        },
       );
   }
 
-  Row _getHeader(List<NotificationDetail> notificationList, int index) {
-    return Row(
-      children: [
-        _getNotificationTitle(notificationList, index),
-        _getNotificationDateTime(notificationList, index)
-      ]
+  Padding _getHeader(List<NotificationDetail> notificationList, int index) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Text(
+        notificationList[index].title,
+        textAlign: TextAlign.left,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 2,
+        style: GoogleStyle.bodyText
+        .copyWith(color: ThemeColor.black, fontWeight: FontWeight.bold, fontSize: 14),
+      ),
     );
   }
 
-  Expanded _getNotificationDateTime(List<NotificationDetail> notificationList, int index) {
-    return Expanded(
-        flex: 4,
-        child: Text(
-          '${notificationList[index].date} ${notificationList[index].time}',
-          textAlign: TextAlign.left,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
-          style: GoogleStyle.bodyText
-          .copyWith(color: ThemeColor.gray500, fontSize: 12),
-        ),
-      );
+  Padding _getNotificationDateTime(List<NotificationDetail> notificationList, int index) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Text(
+        '${notificationList[index].date} ${notificationList[index].time}',
+        style: GoogleStyle.bodyText
+        .copyWith(color: ThemeColor.gray500, fontSize: 12),
+      ),
+    );
   }
 
-  Expanded _getNotificationTitle(List<NotificationDetail> notificationList, int index) {
-    return Expanded(
-        flex: 6,
-        child: Padding(
-          padding: const EdgeInsets.only(right: 5),
-          child: Text(
-            notificationList[index].title,
-            textAlign: TextAlign.left,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            style: GoogleStyle.bodyText
-            .copyWith(color: ThemeColor.black, fontWeight: FontWeight.bold, fontSize: 14),
-          ),
-        ),
-      );
-  }
-
-  Column __getContent(List<NotificationDetail> notificationList, int index) {
-    return Column(
-      children: [
-        Text(
-          notificationList[index].content,
-          style: GoogleStyle.bodyText
-          .copyWith(color: ThemeColor.black, fontSize: 12),
-        )
-      ],
+  Padding _getContent(List<NotificationDetail> notificationList, int index) {
+    return Padding(
+      padding: EdgeInsets.zero,
+      child: Text(
+        notificationList[index].content,
+        style: GoogleStyle.bodyText
+        .copyWith(color: ThemeColor.black, fontSize: 12),
+      ),
     );
   }
 }
