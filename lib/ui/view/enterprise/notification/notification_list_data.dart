@@ -32,25 +32,35 @@ class NotificationListData extends StatelessWidget {
     }
   }
 
-  ListView _getNotificationIsEmpty() {
-    return ListView(
-      children: [
-        Column(
-         children: [
-           Image.asset(
-             ConstantAsset.emptyNotification
-           ),
-           Text(
-             getLocalization.noResult,
-             textAlign: TextAlign.center,
-             style: GoogleStyle.bodyText.copyWith(
-               fontSize: 30,
-               color: ThemeColor.sunny500
+  LayoutBuilder _getNotificationIsEmpty() {
+    return LayoutBuilder(
+      builder: (context, constraints) => ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          Container(
+            constraints: BoxConstraints(
+              minHeight: constraints.maxHeight,
             ),
-           )
-         ],
-       )
-      ]
+            child: Center(
+              child: Column(
+                children: [
+                  Image.asset(
+                    ConstantAsset.emptyNotification
+                  ),
+                  Text(
+                    getLocalization.noResult,
+                    textAlign: TextAlign.center,
+                    style: GoogleStyle.bodyText.copyWith(
+                      fontSize: 14,
+                      color: ThemeColor.sunny500
+                    ),
+                  )
+                ],
+              )
+            ),
+          )
+        ],
+      ),
     );
   }
 

@@ -7,7 +7,7 @@ class NotificationDetailContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: ThemeColor.floralWhite,
+        color: ThemeColor.white,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(20),
         ),
