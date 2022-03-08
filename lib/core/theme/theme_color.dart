@@ -8,6 +8,7 @@ class ThemeColor {
   static const Color sunny100 = Color(0xFFFFFDF8);
   static const Color sunny200 = Color(0xFFFDEFD7);
   static const Color sunny300 = Color(0xFFFCE2B4);
+  static const Color sunny400 = Color(0xFFFFC35D);
   static const Color sunny500 = Color(0xFFF5A00D);
   static const Color sunny600 = Color(0xFFE88011);
   static const Color sunny700 = Color(0xFFB25E05);

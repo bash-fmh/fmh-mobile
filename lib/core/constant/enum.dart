@@ -28,10 +28,14 @@ enum DeployCountry {
   id,
   th,
 }
-enum DeployApplicationType {
+enum ApplicationType {
   enterprise,
   legacy,
   v2,
+}
+enum EnterpriseType {
+  kfc,
+  ph,
 }
 enum MTDType {
   variance,
